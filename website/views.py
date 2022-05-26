@@ -15,4 +15,4 @@ def home():
 
 @views.route('/Organismos')
 def Organismos():
-    return render_template("Organismos.html", mycursor)
+    return render_template("Organismos.html")
