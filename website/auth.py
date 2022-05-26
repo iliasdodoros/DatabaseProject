@@ -1,4 +1,4 @@
-from flask import Blueprint 
+from flask import Blueprint ,render_template
 
 auth = Blueprint('auth' , __name__)
 
@@ -16,8 +16,7 @@ def Science_Field():
 
 @auth.route('/Organismos')
 def Organismos():
-        return "<p>Organismos</p>"
-
+        return render_template("Organismos.html" )
 @auth.route('/Stelehos')
 def Stelehos():
         return "<p>Stelehos</p>"

@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% block title %}Organismos{% endblock %} {% block content
+ %}
+<from method="POST">
+    <h3 align=""center">Sign-Up</h3>
+    <div class="form-group">
+        <label for = "organismoi">What years do you want?</label>
+        <input type="organismoi" 
+                class="form-control" 
+                id="organismoi" 
+                name="organismoi" 
+                placeholder="Enter years"
+                />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Submit</button>
+</from>
+{% endblock %}
