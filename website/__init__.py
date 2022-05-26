@@ -1,5 +1,5 @@
-from flask import Flask,request,redirect
-from flask_mysqldb import MySQL
+from flask import Flask
+
 
 def create_app():
     app = Flask(__name__)
