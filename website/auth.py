@@ -12,7 +12,7 @@ def Project():
 
 @auth.route('/Science_Field')
 def Science_Field():
-        return "<p>Science_Field</p>"
+        return "<p>Science Field</p>"
 
 @auth.route('/Organismos')
 def Organismos():

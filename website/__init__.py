@@ -1,4 +1,5 @@
-from flask import Flask
+from flask import Flask,request,redirect
+from flask_mysqldb import MySQL
 
 def create_app():
     app = Flask(__name__)
