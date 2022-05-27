@@ -4,14 +4,19 @@
        <h3 align="center">Which organizations have received the same number of projects over two consecutive years?</h3>
        <div class="form-group">
            <label for = "organismoi">Enter the years you want</label>
-           <input type="organismoi" 
+           <input type="search" 
                    class="form-control" 
-                   id="organismoi" 
-                   name="organismoi" 
+                   id="yio" 
+                   name="i" 
                    placeholder=""
                    />
        </div>
        <br />
        <button type="search" class="btn btn-primary">Search</button>
    </from>
+   <table>
+    <tr>
+      <td>{{ table }}</td>
+    </tr>
+  </table>
    {% endblock %}

@@ -7,8 +7,9 @@ ourdb = mysql.connector.connect(
 
 
 mycursor = ourdb.cursor()
-data= mycursor.execute("SELECT * FROM research_field")
+datau= mycursor.execute("SELECT * FROM Programm")
 mytable= mycursor.fetchall()
+mytable=list(mytable[0])
 
 views = Blueprint('views', __name__)
 
@@ -20,9 +21,10 @@ def home():
 
 @views.route('/Organismos', methods=['GET','POST'])
 def Organismos():
-    data = request.form
-    print(data)
-    return render_template("Organismos.html" , boolean=True)
+    data = request.form['i']
+    lost=mycursor.execute(f'SELECT * FROM {data}')
+    table=mycursor.fetchall()
+    return render_template("Organismos.html" ,table=table, boolean=True)
 
 @views.route('/Stelehos')
 def Stelehos():
