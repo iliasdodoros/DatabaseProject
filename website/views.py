@@ -1,5 +1,5 @@
 from datetime import date
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template  , request 
 import mysql.connector
 
 ourdb = mysql.connector.connect(
@@ -7,7 +7,7 @@ ourdb = mysql.connector.connect(
 
 
 mycursor = ourdb.cursor()
-data= mycursor.execute("SELECT * FROM Programm")
+data= mycursor.execute("SELECT * FROM research_field")
 mytable= mycursor.fetchall()
 
 views = Blueprint('views', __name__)
@@ -18,10 +18,20 @@ def home():
     return render_template("home.html")
 
 
-@views.route('/Organismos')
+@views.route('/Organismos', methods=['GET','POST'])
 def Organismos():
-    return render_template("Organismos.html")
+    data = request.form
+    print(data)
+    return render_template("Organismos.html" , boolean=True)
 
 @views.route('/Stelehos')
 def Stelehos():
-    return render_template("Stelehos.html",data=mytable)
+    return render_template("Stelehos.html",data=mytable) 
+
+@views.route('/Researcher')
+def Researcher():
+    return render_template("Researcher.html",data=mytable) 
+
+@views.route('/Science_field')
+def Science_Field():
+     return render_template("Science_field.html",data=mytable) 

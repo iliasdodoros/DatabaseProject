@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% extends "base.html" %} {% block title %}Stelehos{% endblock %} {% block content
+    %}
+ 
+<head>
+    <title>
+        How to get selected value in
+        dropdown list using JavaScript?
+    </title>
+</head>
+ 
+<body>
+    <h1 style="color: rgb(98, 0, 128)">
+        Science_field
+    </h1>
+     
+ 
+<p> Select two from the given options:
+        <select id="select" multiple> 
+            <option value="Mathematics">Mathematics</option>
+            <option value="Physics">Physics</option>
+            <option value="Chemistry">Chemistry</option>
+            <option value="Economics">Economics</option>
+            <option value="Programming">Programming</option>
+        </select>
+    </p>
+ 
+ 
+    
+<p> The value of the option selected is:
+        <span class="output"></span>
+    </p>
+ 
+    <button onclick="getOption()">Check option1</button>
+    <script type="text/javascript">
+ //https://www.geeksforgeeks.org/how-to-get-selected-value-in-dropdown-list-using-javascript/
+    function getOption() {
+        selectElement = document.querySelector('#select');
+        output = selectElement.options[selectElement.selectedIndex].value;
+        document.querySelector('.output').textContent = output;
+    }
+    </script>
+</body>
+{% endblock %}
+</html>
