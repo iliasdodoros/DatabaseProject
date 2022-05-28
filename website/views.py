@@ -38,13 +38,18 @@ def Stelehos():
     return render_template("Stelehos.html",)
 
 
-@views.route('/Researcher')
+@views.route('/Programm')
 def Researcher():
-    return render_template("Researcher.html")
+    found = mycursor.execute('SELECT * FROM Stelehos')
+    researchers = mycursor.fetchall()
+    vlaka = mycursor.execute('SELECT * FROM Research_Field')
+    fields = mycursor.fetchall()
+    return render_template("Programm.html",researchers=researchers,fields=fields)
+    
 
 
-@views.route('/Science_field')
-def Science_Field():
+@views.route('/Research_Field')
+def Research_Field():
     lost = mycursor.execute('SELECT * FROM Research_Field')
     fields = mycursor.fetchall()
-    return render_template("Science_field.html",fields=fields)
+    return render_template("Research_Field.html",fields=fields)
