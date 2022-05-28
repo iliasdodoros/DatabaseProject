@@ -23,10 +23,11 @@ def home():
 def Organismos():
     if request.method == 'POST':
         data = request.form["i"]
-        lost = mycursor.execute(f'SELECT * FROM {data}')
-        table = mycursor.fetchall()
-        listed = list(table)
-        return render_template("Organismos.html", table=listed[1][0], boolean=True)
+        if data:
+            lost = mycursor.execute(f'SELECT * FROM {data}')
+            table = mycursor.fetchall()
+            listed = list(table)
+            return render_template("Organismos.html", table=listed, rows=len(table),columns=len(table[0]), boolean=True)
 
     return render_template("Organismos.html", boolean=True)
 
@@ -44,6 +45,6 @@ def Researcher():
 
 @views.route('/Science_field')
 def Science_Field():
-    lost = mycursor.execute(f'SELECT * FROM Research_Field')
+    lost = mycursor.execute('SELECT * FROM Research_Field')
     fields = mycursor.fetchall()
     return render_template("Science_field.html",fields=fields)
