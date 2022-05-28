@@ -23,10 +23,11 @@ def home():
 def Organismos():
     if request.method == 'POST':
         data = request.form["i"]
-        lost = mycursor.execute(f'SELECT * FROM {data}')
-        table = mycursor.fetchall()
-        # listed = list(table)
-        return render_template("Organismos.html", table=table, boolean=True)
+        if data:
+            lost = mycursor.execute(f'SELECT * FROM {data}')
+            table = mycursor.fetchall()
+            listed = list(table)
+            return render_template("Organismos.html", table=listed, rows=len(table),columns=len(table[0]), boolean=True)
 
     return render_template("Organismos.html", boolean=True)
 
