@@ -25,8 +25,8 @@ def Organismos():
         data = request.form["i"]
         lost = mycursor.execute(f'SELECT * FROM {data}')
         table = mycursor.fetchall()
-        listed = list(table)
-        return render_template("Organismos.html", table=listed[1][0], boolean=True)
+        # listed = list(table)
+        return render_template("Organismos.html", table=table, boolean=True)
 
     return render_template("Organismos.html", boolean=True)
 
@@ -37,13 +37,18 @@ def Stelehos():
     return render_template("Stelehos.html",)
 
 
-@views.route('/Researcher')
+@views.route('/Programm')
 def Researcher():
-    return render_template("Researcher.html")
-
-
-@views.route('/Science_field')
-def Science_Field():
-    lost = mycursor.execute(f'SELECT * FROM Research_Field')
+    found = mycursor.execute('SELECT * FROM Stelehos')
+    researchers = mycursor.fetchall()
+    vlaka = mycursor.execute('SELECT * FROM Research_Field')
     fields = mycursor.fetchall()
-    return render_template("Science_field.html",fields=fields)
+    return render_template("Programm.html",researchers=researchers,fields=fields)
+    
+
+
+@views.route('/Research_Field')
+def Research_Field():
+    lost = mycursor.execute('SELECT * FROM Research_Field')
+    fields = mycursor.fetchall()
+    return render_template("Research_Field.html",fields=fields)
