@@ -17,11 +17,9 @@
  
 <p> Select two from the given options:
         <select id="select" multiple> 
-            <option value="Mathematics">Mathematics</option>
-            <option value="Physics">Physics</option>
-            <option value="Chemistry">Chemistry</option>
-            <option value="Economics">Economics</option>
-            <option value="Programming">Programming</option>
+            {%for field in fields%}
+            <option value="{{field[0]}}">{{field[0]}}</option>
+            {%endfor%}
         </select>
     </p>
  
