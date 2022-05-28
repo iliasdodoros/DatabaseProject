@@ -5,6 +5,7 @@ def create_app():
     app.config['SECRET_KEY'] = 'Database'
 
     from .views import views 
+    from .researcher import researcher 
 
     app.register_blueprint(views,url_prefix='/')
 

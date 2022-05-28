@@ -9,7 +9,7 @@ ourdb = mysql.connector.connect(
 mycursor = ourdb.cursor()
 datau= mycursor.execute("SELECT * FROM Programm")
 mytable= mycursor.fetchall()
-mytable=list(mytable[0])
+
 
 views = Blueprint('views', __name__)
 
