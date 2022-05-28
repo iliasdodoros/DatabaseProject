@@ -7,7 +7,7 @@ ourdb = mysql.connector.connect(
 
 
 mycursor = ourdb.cursor()
-data= mycursor.execute("SELECT * FROM research_field")
+data= mycursor.execute("SELECT * FROM Research_Field")
 mytable= mycursor.fetchall()
 
 researcher = Blueprint('researcher', __name__)

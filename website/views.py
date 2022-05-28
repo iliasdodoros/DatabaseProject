@@ -28,8 +28,8 @@ def Organismos():
             table = mycursor.fetchall()
             listed = list(table)
             return render_template("Organismos.html", table=listed, rows=len(table),columns=len(table[0]), boolean=True)
-
-    return render_template("Organismos.html", boolean=True)
+    else:       
+        return render_template("Organismos.html", boolean=True)
 
 
 @views.route('/Stelehos')
