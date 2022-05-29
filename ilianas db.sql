@@ -185,33 +185,33 @@ VALUES
 INSERT INTO Stelehos 
 	(`name`,`stelehos_id`) 
 VALUES 
-	('john marakis','1'),
-	('katy vlacha','2'),
-	('perry platipodas','3'),
-	('nick thegreek','4'),
-	('vikaki glampidaki','5'),
-	('marios nananis','6'),
-	('captain ntontoros','7'),
-	('giannis kitsis','8'),
-	('iliana chatzi','9'),
-	('pinelopi katsarea','10'),
-	('manos chatzak','11'),
-	('oraia koimomeni','12'),
-	('kiki kotoula','13'),
-	('loula kaloula','14'),
-	('peggy gou','15');
+	('Johnny Depp','1'),
+	('Katy Vlacha','2'),
+	('Perry Platipodas','3'),
+	('Nick Thegreek','4'),
+	('Vikaki Glampidaki','5'),
+	('Marios Nananis','6'),
+	('Captain Ntontoros','7'),
+	('Giannis Kitsis','8'),
+	('Iliana Chatzi','9'),
+	('Pinelopi Katsarea','10'),
+	('Manos Chatzak','11'),
+	('Oraia Koimomeni','12'),
+	('Kiki Kotoula','13'),
+	('loula Kaloula','14'),
+	('Peggy Gou','15');
 
 INSERT INTO Research_field
 	(`name`) 
 VALUES 
-	('mathematics'),
-	('history'),
-	('physics'),
-	('economics'),
-	('chemistry'),
-	('sociology'),
-	('polics'),
-	('astrology');
+	('Mathematics'),
+	('History'),
+	('Physics'),
+	('Economics'),
+	('Chemistry'),
+	('Sociology'),
+	('Polics'),
+	('Astrology');
 
 
 INSERT INTO Organisation 
@@ -346,7 +346,7 @@ VALUES
 	('(516) 978-4903','4');
 
 INSERT into Researcher
-	(` sex`,`last_name`,`date_of_birth`,`name`,`researcher_id`,`organisation_id`) 
+	(`sex`,`last_name`,`date_of_birth`,`name`,`researcher_id`,`organisation_id`) 
 VALUES 
 	('male','Papadopoulos','01-03-1970','Petros','1','1'),
 	('male','Snoop','04-04-1974','Dog','2','1'),
@@ -451,7 +451,7 @@ VALUES
 	
 
 INSERT into Project
-	(` amount`,`title`,`beginning`,`summary`,`ending`,`project_id`,`grade`,`date`,`stelehos_id`,`programm_id`,`supervisor_id`,`grader_id`,`organisation_id`) 
+	(`amount`,`title`,`beginning`,`summary`,`ending`,`project_id`,`grade`,`date`,`stelehos_id`,`programm_id`,`supervisor_id`,`grader_id`,`organisation_id`) 
 VALUES 
 	('200.000','������ �����','01-01-2020','�������� ����� �������� ���� ��������������','01-01-2023','1','7','03-12-2019','1','1','1','1','1'),
 	
