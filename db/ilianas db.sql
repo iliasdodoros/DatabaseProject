@@ -618,8 +618,8 @@ VALUES
 	('76','Economics'),
 	('77','Chemistry'),
 	('78','Sociology'),
-	('79','Polics'),
-	('80','Astrology');
+	('79','Polics');
+
 
 
 -- INSERT into Works_in_project  
