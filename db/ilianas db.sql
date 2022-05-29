@@ -143,7 +143,7 @@ CREATE TABLE Works_in_Project
 
 alter table Project add constraint check(amount between 100000 and 1000000);
 
--- alter table Project add constraint check(beginning < ending);
+alter table Project add constraint check(beginning < ending);
 
 alter table Project add constraint check(grade > 0);
 
@@ -401,9 +401,9 @@ VALUES
 	('female','Aggelidou','1994-01-05','Aggeliki','50','20'),
 	('male','Georgoulas','1990-11-08','Petros','51','21'),
 	('male','Patsiouras','1974-04-04','Dog','52','22'),
-	('male','Muska','1980-13-01','Alekos','53','23'),
+	('male','Muska','1980-10-01','Alekos','53','23'),
 	('male','Mitsotakis','1990-05-03','Giannis','54','24'),
-	('male','Georgiou','1987-23-03','Alex','55','25'),
+	('male','Georgiou','1987-02-03','Alex','55','25'),
 	('male','Koutsoubas','1950-12-02','Dimitris','56','26'),
 	('male','Mac','1963-01-10','Nikolas','57','27'),
 	('male','Man','1969-01-05','Bat','58','28'),
@@ -414,7 +414,7 @@ VALUES
 	('male','Persis','2001-01-01','Jackson','63','3'),
 	('male','Kamir','2001-12-01','Omar','64','4'),
 	('male','Gravanis','1996-05-02','Marios','65','5'),
-	('male','Kitsis','1974-14-05','Theo','66','6'),
+	('male','Kitsis','1974-10-05','Theo','66','6'),
 	('male','Maggouras','1978-01-08','Stavros','67','7'),
 	('male','Kostadaras','1980-05-05','Petros','68','8'),
 	('male','Vasis','1971-11-01','Lampros','69','9'),
@@ -427,13 +427,13 @@ VALUES
 	('female','Maria','1970-01-12','Xenia','76','16'),
 	('female','Paparizoy','1975-05-03','Sara','77','17'),
 	('female','Tsagri','1950-04-03','Ioanna','78','18'),
-	('female','Iiadou','1972-21-12','Milena','79','19'),
-	('female','Kiori','1971-21-03','Elena','80','20'),
+	('female','Iiadou','1972-01-12','Milena','79','19'),
+	('female','Kiori','1971-01-03','Elena','80','20'),
 	('female','Kalifoni','1980-11-10','Maria','81','21'),
 	('female','Liatsou','1972-02-12','Liana','82','22'),
 	('female','Miziou','1971-04-04','Keisi','83','23'),
 	('female','Pianou','1971-11-11','Nicky','84','24'),
-	('female','Mouse','1973-15-03','Mini','85','25'),
+	('female','Mouse','1973-01-03','Mini','85','25'),
 	('female','Hadid','1979-01-08','Bella','86','26'),
 	('female','Hadid','1978-01-08','Gigi','87','27'),
 	('female','Kardasian','1970-10-05','Kim','88','28'),
@@ -451,99 +451,98 @@ VALUES
 	('female','Aggeliou','1974-01-04','Aggeliki','100','10');
 	
 
-INSERT into Project
-	(`amount`,`title`,`beginning`,`ending`,`duration`,`summary`,`project_id`,`grade`,`date_of_grading`,`stelehos_id`,`programm_id`,`supervisor_id`,`grader_id`,`organisation_id`) 
-VALUES 
-	('200.000','Mopping the sea','01-01-2020','01-01-2023','3','lorem ipsum','1','1','1','1','1','1'),
+INSERT INTO elidek.Project (amount,title,beginning,ending,duration,summary,grade,date_of_grading,stelehos_id,programm_id,supervisor_id,grader_id,organisation_id) VALUES
+	 (391820,'African fish eagle','2000-01-01','2001-02-01',13,'consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien',3,'1999-12-01',1,1,1,80,1),
+	 (143448,'African ground squirrel (unidentified)','2000-02-01','2001-04-01',14,'tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse',4,'2000-01-01',2,2,2,81,2),
+	 (216332,'American badger','2000-03-01','2001-06-01',15,'nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere',5,'2000-01-30',3,3,3,82,3),
+	 (856065,'Antelope ground squirrel','2000-04-01','2001-08-01',16,'varius ut blandit non interdum in ante vestibulum ante ipsum primis in',6,'2000-03-01',4,4,4,83,4),
+	 (682063,'Arthritazin Pain Relieving','2000-05-01','2001-10-01',17,'laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus',7,'2000-03-31',5,5,5,84,5),
+	 (988639,'Asian foreset tortoise','2000-06-01','2001-12-01',18,'tempus semper est quam pharetra',8,'2000-05-01',6,6,6,85,6),
+	 (652217,'Bandicoot, southern brown','2000-07-01','2002-02-01',19,'mattis pulvinar nulla pede ullamcorper augue',9,'2000-05-31',7,7,7,86,7),
+	 (953419,'Blesbok','2000-08-01','2002-04-01',20,'vel pede morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus',10,'2000-07-01',8,8,8,87,8),
+	 (130522,'Bontebok','2000-09-01','2002-06-01',21,'proin at turpis a pede posuere nonummy integer non velit donec diam neque vestibulum',3,'2000-08-01',9,9,9,88,9),
+	 (540893,'California sea lion','2000-10-01','2002-08-01',22,'lectus in est risus auctor',4,'2000-08-31',10,10,10,89,10),
+	 (669594,'Cefepime','2000-11-01','2002-10-01',23,'imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris',5,'2000-10-01',1,11,11,90,11),
+	 (542354,'Cherry Birch Pollen','2000-12-01','2002-12-01',24,'pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula',6,'2000-10-31',2,12,12,91,12),
+	 (679829,'Ciprofloxacin','2001-01-01','2003-02-01',25,'non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate',7,'2000-12-01',3,13,13,92,13),
+	 (438769,'Clindamycin in 5 Percent Dextrose','2001-02-01','2003-04-01',26,'vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget',8,'2001-01-01',4,14,14,93,14),
+	 (905398,'Cormorant, king','2001-03-01','2003-06-01',27,'et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante',9,'2001-01-29',5,15,15,94,15),
+	 (307785,'Deer, mule','2001-04-01','2003-08-01',28,'mattis odio donec vitae nisi nam',10,'2001-03-01',6,16,16,95,16),
+	 (627997,'Deer, white-tailed','2001-05-01','2003-10-01',29,'ut ultrices vel augue vestibulum ante ipsum primis in faucibus',3,'2001-03-31',7,17,17,96,17),
+	 (152025,'Detrol LA','2001-06-01','2003-12-01',30,'suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper',4,'2001-05-01',8,18,18,97,18),
+	 (668211,'Dove, mourning collared','2001-07-01','2004-02-01',31,'orci vehicula condimentum curabitur in libero ut massa',5,'2001-05-31',9,19,19,98,19),
+	 (589991,'Enalapril Maleate','2001-08-01','2004-04-01',32,'cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere',6,'2001-07-01',10,20,20,99,20),
+	 (932425,'Endometrin','2001-09-01','2004-06-01',33,'tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed',7,'2001-08-01',1,21,21,100,21),
+	 (909993,'Etomidate','2001-10-01','2004-08-01',34,'vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent',8,'2001-08-31',2,22,22,1,22),
+	 (456697,'European beaver','2001-11-01','2004-10-01',35,'potenti cras in purus eu magna vulputate luctus cum sociis natoque',9,'2001-10-01',3,23,23,2,23),
+	 (206061,'European wild cat','2001-12-01','2004-12-01',36,'velit vivamus vel nulla eget eros elementum',10,'2001-10-31',4,24,24,3,24),
+	 (244556,'Fanapt','2002-01-01','2005-02-01',37,'turpis sed ante vivamus tortor duis mattis egestas metus aenean',3,'2001-12-01',5,25,25,4,25),
+	 (760211,'Francolin, swainson''s','2002-02-01','2005-04-01',38,'nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis',4,'2002-01-01',6,26,26,5,26),
+	 (433644,'Goose, snow','2002-03-01','2005-06-01',39,'felis eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec',5,'2002-01-29',7,27,27,6,27),
+	 (879641,'Great kiskadee','2002-04-01','2005-08-01',40,'non quam nec dui luctus rutrum nulla',6,'2002-03-01',8,28,28,7,28),
+	 (504423,'Greater blue-eared starling','2002-05-01','2005-10-01',41,'commodo placerat praesent blandit nam nulla integer pede justo lacinia eget',7,'2002-03-31',9,29,29,8,29),
+	 (811767,'Green vine snake','2002-06-01','2005-12-01',42,'in felis donec semper sapien a libero nam dui proin leo odio',8,'2002-05-01',10,30,30,9,30),
+	 (460197,'Halcion','2020-01-01','2021-01-01',12,'bibendum morbi non quam nec dui luctus rutrum nulla tellus in',9,'2019-12-01',1,1,31,10,1),
+	 (958356,'honey bee hymenoptera venom','2020-02-01','2021-03-01',13,'elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor',10,'2020-01-01',2,2,32,11,2),
+	 (839283,'Hornbill, southern ground','2020-03-01','2021-05-01',14,'consequat dui nec nisi volutpat eleifend donec',3,'2020-01-30',3,3,33,12,3),
+	 (680431,'Indian jackal','2020-04-01','2021-07-01',15,'morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis',4,'2020-03-01',4,4,34,13,4),
+	 (388790,'Jaguar','2020-05-01','2021-09-01',16,'aenean lectus pellentesque eget nunc donec quis',5,'2020-03-31',5,5,35,14,5),
+	 (933593,'Kiskadee, great','2020-06-01','2021-11-01',17,'imperdiet et commodo vulputate justo in blandit',6,'2020-05-01',6,6,36,15,6),
+	 (434938,'LACTULOSE','2020-07-01','2022-01-01',18,'justo morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate justo',7,'2020-05-31',7,7,37,16,7),
+	 (424892,'Leeks','2020-08-01','2022-03-01',19,'morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate',8,'2020-07-01',8,8,38,17,8),
+	 (123433,'Legaan, ground','2020-09-01','2022-05-01',20,'odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede',9,'2020-08-01',9,9,39,18,9),
+	 (276677,'Levofloxacin','2020-10-01','2022-07-01',21,'vulputate elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus',10,'2020-08-31',10,10,40,19,10),
+	 (146435,'Lion, asian','2020-11-01','2022-09-01',22,'amet eleifend pede libero quis orci nullam molestie',3,'2020-10-01',1,11,41,20,11),
+	 (499193,'METHADONE HYDROCHLORIDE','2020-12-01','2022-11-01',23,'pede morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est',4,'2020-10-31',2,12,42,21,12),
+	 (759060,'Native cat','2021-01-01','2023-01-01',24,'justo in blandit ultrices enim lorem ipsum dolor sit',5,'2020-12-01',3,13,43,22,13),
+	 (753823,'NovoLog','2021-02-01','2023-03-01',25,'in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum',6,'2021-01-01',4,14,44,23,14),
+	 (689462,'Olay Fresh Effects Soak Up the Sun Protection','2021-03-01','2023-05-01',26,'amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis',7,'2021-01-29',5,15,45,24,15),
+	 (546606,'Pain Relief PM','2021-04-01','2023-07-01',27,'leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue',8,'2021-03-01',6,16,46,25,16),
+	 (901879,'Parakeet, rose-ringed','2021-05-01','2023-09-01',28,'fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis',9,'2021-03-31',7,17,47,26,17),
+	 (782905,'Phalarope, red','2021-06-01','2023-11-01',29,'facilisi cras non velit nec nisi vulputate',10,'2021-05-01',8,18,48,27,18),
+	 (603913,'Pigeon, wood','2021-07-01','2024-01-01',30,'in consequat ut nulla sed accumsan',3,'2021-05-31',9,19,49,28,19),
+	 (507299,'Pintail, white-cheeked','2021-08-01','2024-03-01',31,'sodales sed tincidunt eu felis fusce posuere felis',4,'2021-07-01',10,20,50,29,20),
+	 (714401,'Plains zebra','2021-09-01','2024-05-01',32,'dolor vel est donec odio justo sollicitudin ut suscipit a',5,'2021-08-01',1,21,51,30,21),
+	 (595821,'PREP (AND) PRIME CC COLOR CORRECT ','2021-10-01','2024-07-01',33,'nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare consequat',6,'2021-08-31',2,22,52,31,22),
+	 (884549,'Proparacaine Hydrochloride','2021-11-01','2024-09-01',34,'ultrices posuere cubilia curae nulla dapibus dolor vel est donec',7,'2021-10-01',3,23,53,32,23),
+	 (249468,'Red and blue macaw','2021-12-01','2024-11-01',35,'vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra',8,'2021-10-31',4,24,54,33,24),
+	 (674838,'Red brocket','2022-01-01','2025-01-01',36,'dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum',9,'2021-12-01',5,25,55,34,25),
+	 (492934,'Red lava crab','2022-02-01','2025-03-01',37,'maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien',10,'2022-01-01',6,26,56,35,26),
+	 (781742,'Red phalarope','2022-03-01','2025-05-01',38,'orci luctus et ultrices posuere',3,'2022-01-29',7,27,57,36,27),
+	 (470555,'Red sheep','2022-04-01','2025-07-01',39,'ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla',4,'2022-03-01',8,28,58,37,28),
+	 (917230,'Snake, tiger','2022-05-01','2025-09-01',40,'commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget tempus',5,'2022-03-31',9,29,59,38,29),
+	 (810004,'Softlips Peach Mango','2022-06-01','2025-11-01',41,'pede ac diam cras pellentesque volutpat dui maecenas tristique est et',6,'2022-05-01',10,30,60,39,30),
+	 (309511,'Starfish, crown of thorns','2022-07-01','2026-01-01',42,'odio curabitur convallis duis consequat dui nec nisi volutpat eleifend',7,'2022-05-31',1,1,61,40,1),
+	 (166984,'Stila Hydrating Primer Oil-Free SPF 30','2022-08-01','2026-03-01',43,'nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta',8,'2022-07-01',2,2,62,41,2),
+	 (148630,'Surmontil','2022-09-01','2026-05-01',44,'vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia',9,'2022-08-01',3,3,63,42,3),
+	 (351760,'Tecfidera','2022-10-01','2026-07-01',45,'orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin',10,'2022-08-31',4,4,64,43,4),
+	 (697758,'Theophylline in Dextrose','2022-11-01','2026-09-01',46,'vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer ac',3,'2022-10-01',5,5,65,44,5),
+	 (868566,'TLB-Matrix','2022-12-01','2026-11-01',47,'posuere cubilia curae duis faucibus accumsan odio curabitur convallis duis consequat dui nec nisi volutpat eleifend donec',4,'2022-10-31',6,6,66,45,6),
+	 (491776,'Tortoise, radiated','2023-01-01','2027-01-01',48,'euismod scelerisque quam turpis adipiscing lorem vitae',5,'2022-12-01',7,7,67,46,7),
+	 (677021,'Tropical buckeye butterfly','2023-02-01','2027-02-01',48,'nunc viverra dapibus nulla suscipit ligula in lacus curabitur',6,'2023-01-01',8,8,68,47,8),
+	 (603151,'Tsessebe','2023-03-01','2027-03-01',48,'curabitur gravida nisi at nibh',7,'2023-01-29',9,9,69,48,9),
+	 (444879,'Two-toed sloth','2023-04-01','2027-04-01',48,'pulvinar nulla pede ullamcorper augue a suscipit',8,'2023-03-01',10,10,70,49,10),
+	 (418070,'Vancomycin Hydrochloride','2023-05-01','2027-05-01',48,'platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis',9,'2023-03-31',1,11,71,50,11),
+	 (880383,'Wallaby, agile','2023-06-01','2027-06-01',48,'volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc',10,'2023-05-01',2,12,72,51,12),
+	 (601962,'WHITE LAVENDER AND MINT ANTIBACTERIAL ','2023-07-01','2027-07-01',48,'quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna',3,'2023-05-31',3,13,73,52,13),
+	 (982457,'White-eye, pale','2023-08-01','2027-08-01',48,'ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent',4,'2023-07-01',4,14,74,53,14),
+	 (869816,'White-winged tern','2023-09-01','2027-09-01',48,'ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus',5,'2023-08-01',5,15,75,54,15),
+	 (822343,'Wild boar','2023-10-01','2027-10-01',48,'orci nullam molestie nibh in',6,'2023-08-31',6,16,76,55,16),
+	 (141068,'Wombat, common','2023-11-01','2027-11-01',48,'a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id',7,'2023-10-01',7,17,77,56,17),
+	 (780046,'Wombat, southern hairy-nosed','2023-12-01','2027-12-01',48,'sed justo pellentesque viverra pede ac diam',8,'2023-10-31',8,18,78,57,18),
+	 (813608,'XEROSTOM','2024-01-01','2028-01-01',48,'malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin',9,'2023-12-01',9,19,79,58,19);
+-- INSERT into Project
+-- 	(`amount`,`title`,`beginning`,`ending`,`duration`,`summary`,`project_id`,`grade`,`date_of_grading`,`stelehos_id`,`programm_id`,`supervisor_id`,`grader_id`,`organisation_id`) 
+-- VALUES 
+-- 	('200.000','Mopping the sea','01-01-2020','01-01-2023','3','lorem ipsum','1','1','1','1','1','1'),
 	
 -- INSERT into Delivered
 -- 	(`title`,`summary`,`delivered_id`,`project_id`) 
 -- VALUES 
 
-INSERT into Project_research_field 
-	(`project_id`,`name`) 
-VALUES 
-	('1','Mathematics'),
-	('2','History'),
-	('3','Physics'),
-	('4','Economics'),
-	('5','Chemistry'),
-	('6','Sociology'),
-	('7','Polics'),
-	('8','Astrology');
-	('9','Mathematics'),
-	('10','History'),
-	('11','Physics'),
-	('12','Economics'),
-	('13','Chemistry'),
-	('14','Sociology'),
-	('15','Polics'),
-	('16','Astrology');
-	('17','Mathematics'),
-	('18','History'),
-	('19','Physics'),
-	('20','Economics'),
-	('21','Chemistry'),
-	('22','Sociology'),
-	('23','Polics'),
-	('24','Astrology');
-	('25','Mathematics'),
-	('26','History'),
-	('27','Physics'),
-	('28','Economics'),
-	('29','Chemistry'),
-	('30','Sociology'),
-	('31','Polics'),
-	('32','Astrology');
-	('33','Mathematics'),
-	('34','History'),
-	('35','Physics'),
-	('36','Economics'),
-	('37','Chemistry'),
-	('38','Sociology'),
-	('39','Polics'),
-	('40','Astrology');
-	('41','Mathematics'),
-	('42','History'),
-	('43','Physics'),
-	('44','Economics'),
-	('45','Chemistry'),
-	('46','Sociology'),
-	('47','Polics'),
-	('48','Astrology');
-	('49','Mathematics'),
-	('50','History'),
-	('51','Physics'),
-	('52','Economics'),
-	('53','Chemistry'),
-	('54','Sociology'),
-	('55','Polics'),
-	('56','Astrology');
-	('57','Mathematics'),
-	('58','History'),
-	('59','Physics'),
-	('60','Economics'),
-	('61','Chemistry'),
-	('62','Sociology'),
-	('63','Polics'),
-	('64','Astrology');
-	('65','Mathematics'),
-	('66','History'),
-	('67','Physics'),
-	('68','Economics'),
-	('69','Chemistry'),
-	('70','Sociology'),
-	('71','Polics'),
-	('72','Astrology');
-	('73','Mathematics'),
-	('74','History'),
-	('75','Physics'),
-	('76','Economics'),
-	('77','Chemistry'),
-	('78','Sociology'),
-	('79','Polics'),
-	('80','Astrology');
-
+-- INSERT into Project_research_field 
+-- 	(`project_id`,`name`) 
+-- VALUES 
 
 -- INSERT into Works_in_project  
 -- 	(`project_id`,`researcher_id`) 
