@@ -81,8 +81,8 @@ CREATE TABLE Researcher
 (
   sex VARCHAR(10) NOT NULL,
   last_name VARCHAR(45) NOT NULL,
-  date_of_birth VARCHAR(20) NOT NULL,
-  name VARCHAR(45) NOT NULL,
+  date_of_birth date NOT NULL,
+  first_name VARCHAR(45) NOT NULL,
   researcher_id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT NOT NULL,
   organisation_id SMALLINT unsigned NULL,
   PRIMARY KEY (researcher_id),
@@ -93,13 +93,13 @@ CREATE TABLE Project
 (
   amount INT NOT NULL,
   title VARCHAR(45) NOT NULL,
-  beginning VARCHAR(20) NOT NULL,
-  ending VARCHAR(20) NOT NULL,
+  beginning date NOT NULL,
+  ending date NOT NULL,
   duration SMALLINT NOT NULL,
   summary VARCHAR(200) NOT NULL,
   project_id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
   grade INT NOT NULL,
-  date VARCHAR(20) NOT NULL,
+  date_of_grading date NOT NULL,
   stelehos_id SMALLINT UNSIGNED NULL,
   programm_id SMALLINT unsigned NULL,
   supervisor_id SMALLINT UNSIGNED NULL,
@@ -347,7 +347,7 @@ VALUES
 	('(516) 978-4903','4');
 
 INSERT into Researcher
-	(`sex`,`last_name`,`date_of_birth`,`name`,`researcher_id`,`organisation_id`) 
+	(`sex`,`last_name`,`date_of_birth`,`first_name`,`researcher_id`,`organisation_id`) 
 VALUES 
 	('male','Papadopoulos','01-03-1970','Petros','1','1'),
 	('male','Snoop','04-04-1974','Dog','2','2'),
@@ -364,9 +364,9 @@ VALUES
 	('male','Persis','01-01-2001','Propersis','13','13'),
 	('male','Kamir','22-01-2001','Omar','14','14'),
 	('male','Gravanis','05-02-1996','Marios','15','15'),
-	('male','Kitsakos','01-03-1970','Theo','16','16'),
-	('male','Maggouras','01-03-1970','Stavros','17','17'),
-	('male','Kostadaras','01-03-1970','Petros','18','18'),
+	('male','Kitsakos','08-03-1977','Theo','16','16'),
+	('male','Maggouras','01-06-1980','Stavros','17','17'),
+	('male','Kostadaras','01-03-1974','Petros','18','18'),
 	('male','Variabasis','01-03-1970','Lampros','19','19'),
 	('male','Kapetanakis','01-03-1970','Mimis','20','20'),
 	('male','Mitropanos','01-03-1970','Mitsos','21','21'),
@@ -451,10 +451,10 @@ VALUES
 	('female','Aggeliou','01-04-1974','Aggeliki','100','10');
 	
 
--- INSERT into Project
--- 	(`amount`,`title`,`beginning`,`ending`,`duration`,`summary`,`project_id`,`grade`,`date`,`stelehos_id`,`programm_id`,`supervisor_id`,`grader_id`,`organisation_id`) 
--- VALUES 
--- 	('200.000','Mopping the sea','01-01-2020','01-01-2023','3','lorem ipsum','1','1','1','1','1','1'),
+INSERT into Project
+	(`amount`,`title`,`beginning`,`ending`,`duration`,`summary`,`project_id`,`grade`,`date_of_grading`,`stelehos_id`,`programm_id`,`supervisor_id`,`grader_id`,`organisation_id`) 
+VALUES 
+	('200.000','Mopping the sea','01-01-2020','01-01-2023','3','lorem ipsum','1','1','1','1','1','1'),
 	
 -- INSERT into Delivered
 -- 	(`title`,`summary`,`delivered_id`,`project_id`) 
