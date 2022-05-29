@@ -94,8 +94,9 @@ CREATE TABLE Project
   amount INT NOT NULL,
   title VARCHAR(45) NOT NULL,
   beginning VARCHAR(20) NOT NULL,
-  summary VARCHAR(45) NOT NULL,
   ending VARCHAR(20) NOT NULL,
+  duration SMALLINT NOT NULL,
+  summary VARCHAR(45) NOT NULL,
   project_id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
   grade INT NOT NULL,
   date VARCHAR(20) NOT NULL,
@@ -451,7 +452,7 @@ VALUES
 	
 
 INSERT into Project
-	(`amount`,`title`,`beginning`,`summary`,`ending`,`project_id`,`grade`,`date`,`stelehos_id`,`programm_id`,`supervisor_id`,`grader_id`,`organisation_id`) 
+	(`amount`,`title`,`beginning`,`ending`,`duration`,`summary`,`project_id`,`grade`,`date`,`stelehos_id`,`programm_id`,`supervisor_id`,`grader_id`,`organisation_id`) 
 VALUES 
 	('200.000','������ �����','01-01-2020','�������� ����� �������� ���� ��������������','01-01-2023','1','7','03-12-2019','1','1','1','1','1'),
 	
