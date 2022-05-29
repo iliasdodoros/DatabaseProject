@@ -162,14 +162,14 @@ VALUES
 	('Economic Opportunity Act of 1964','Society','10'),
 	('Elementary and Secondary Education Act','Society','11'),
 	('Higher Education Act of 1965','Society','12'),
-	('Support Central','�dministration services','13'),
-	('The Office Management Team','�dministration services','14'),
-	('Office Agents','�dministration services','15'),
-	('Better Business Assistants','�dministration services','16'),
-	('Smooth Operators','�dministration services','17'),
-	('Agents of Reception','�dministration services','18'),
-	('Pillar Staff','�dministration services','19'),
-	('Secureoffice','�dministration services','20'),
+	('Support Central','Administration services','13'),
+	('The Office Management Team','Administration services','14'),
+	('Office Agents','Administration services','15'),
+	('Better Business Assistants','Administration services','16'),
+	('Smooth Operators','Administration services','17'),
+	('Agents of Reception','Administration services','18'),
+	('Pillar Staff','Administration services','19'),
+	('Secureoffice','Administration services','20'),
 	('Amazon Lab126','Research & Innovation Center','21'),
 	('Verizon 5G Labs','Research & Innovation Center','22'),
 	('Volkswagen Automative Innovation Lab','Research & Innovation Center','23'),
@@ -184,21 +184,21 @@ VALUES
 INSERT INTO Stelehos 
 	(`name`,`stelehos_id`) 
 VALUES 
-	('john travolta','1'),
-	('katy vlacha','2'),
-	('perry platipodas','3'),
-	('nick thegreek','4'),
-	('vikaki glampidaki','5'),
-	('marios nananis','6'),
-	('captain ntontoros','7'),
-	('giannis kitsis','8'),
-	('iliana chatzi','9'),
-	('pinelopi katsarea','10'),
-	('manos chatzak','11'),
-	('oraia koimomeni','12'),
-	('kiki kotoula','13'),
-	('loula kaloula','14'),
-	('peggy gou','15');
+	('John Travolta','1'),
+	('Katy Vlacha','2'),
+	('Perry Platipodas','3'),
+	('Nick Thegreek','4'),
+	('vikaki Glampidaki','5'),
+	('Marios Nananis','6'),
+	('Captain Ntontoros','7'),
+	('Giannis Kitsis','8'),
+	('Iliana Chatzi','9'),
+	('Pinelopi Katsarea','10'),
+	('Manos Chatzak','11'),
+	('Oraia Koimomeni','12'),
+	('Kiki Kotoula','13'),
+	('loula Kaloula','14'),
+	('Peggy Gou','15');
 
 INSERT INTO Research_field
 	(`name`) 
@@ -278,7 +278,7 @@ VALUES
 	('1112000','30');
 	
 INSERT into Research_center 
-	(` Proupologismos_apo_Idiotikes_draseis`,`Proupologismos_apo_Ypourgeio_Paideias`,`organisation_id`) 
+	(`Proupologismos_apo_Idiotikes_draseis`,`Proupologismos_apo_Ypourgeio_Paideias`,`organisation_id`) 
 VALUES 
 	
 	('2445000','17'),
@@ -294,7 +294,7 @@ VALUES
 	
 	
 INSERT into Organisation_phones  
-	(` phones`,`organisation_id`) 
+	(`phones`,`organisation_id`) 
 VALUES 
 	('(802) 898-8461','1'),
 	('(338) 302-6974','2'),
@@ -453,7 +453,7 @@ VALUES
 	
 		
 INSERT into Project
-	(` amount`,`title`,`beginning`,`summary`,`ending`,`project_id`,`grade`,`date`,`stelehos_id`,`programm_id`,`supervisor_id`,`grader_id`,`organisation_id`) 
+	(`amount`,`title`,`beginning`,`summary`,`ending`,`project_id`,`grade`,`date`,`stelehos_id`,`programm_id`,`supervisor_id`,`grader_id`,`organisation_id`) 
 VALUES 
 	('200.000','������ �����','01-01-2020','�������� ����� �������� ���� ��������������','01-01-2023','1','7','03-12-2019','1','1','1','1','1'),
 
