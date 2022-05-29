@@ -547,7 +547,7 @@ VALUES
 	('5','Chemistry'),
 	('6','Sociology'),
 	('7','Polics'),
-	('8','Astrology');
+	('8','Astrology'),
 	('9','Mathematics'),
 	('10','History'),
 	('11','Physics'),
@@ -555,7 +555,7 @@ VALUES
 	('13','Chemistry'),
 	('14','Sociology'),
 	('15','Polics'),
-	('16','Astrology');
+	('16','Astrology'),
 	('17','Mathematics'),
 	('18','History'),
 	('19','Physics'),
@@ -563,7 +563,7 @@ VALUES
 	('21','Chemistry'),
 	('22','Sociology'),
 	('23','Polics'),
-	('24','Astrology');
+	('24','Astrology'),
 	('25','Mathematics'),
 	('26','History'),
 	('27','Physics'),
@@ -571,7 +571,7 @@ VALUES
 	('29','Chemistry'),
 	('30','Sociology'),
 	('31','Polics'),
-	('32','Astrology');
+	('32','Astrology'),
 	('33','Mathematics'),
 	('34','History'),
 	('35','Physics'),
@@ -579,7 +579,7 @@ VALUES
 	('37','Chemistry'),
 	('38','Sociology'),
 	('39','Polics'),
-	('40','Astrology');
+	('40','Astrology'),
 	('41','Mathematics'),
 	('42','History'),
 	('43','Physics'),
@@ -587,7 +587,7 @@ VALUES
 	('45','Chemistry'),
 	('46','Sociology'),
 	('47','Polics'),
-	('48','Astrology');
+	('48','Astrology'),
 	('49','Mathematics'),
 	('50','History'),
 	('51','Physics'),
@@ -595,7 +595,7 @@ VALUES
 	('53','Chemistry'),
 	('54','Sociology'),
 	('55','Polics'),
-	('56','Astrology');
+	('56','Astrology'),
 	('57','Mathematics'),
 	('58','History'),
 	('59','Physics'),
@@ -603,7 +603,7 @@ VALUES
 	('61','Chemistry'),
 	('62','Sociology'),
 	('63','Polics'),
-	('64','Astrology');
+	('64','Astrology'),
 	('65','Mathematics'),
 	('66','History'),
 	('67','Physics'),
@@ -611,7 +611,7 @@ VALUES
 	('69','Chemistry'),
 	('70','Sociology'),
 	('71','Polics'),
-	('72','Astrology');
+	('72','Astrology'),
 	('73','Mathematics'),
 	('74','History'),
 	('75','Physics'),
@@ -619,7 +619,6 @@ VALUES
 	('77','Chemistry'),
 	('78','Sociology'),
 	('79','Polics');
-
 
 
 -- INSERT into Works_in_project  
