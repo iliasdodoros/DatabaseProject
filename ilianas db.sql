@@ -164,7 +164,7 @@ VALUES
 	('Economic Opportunity Act of 1964','Society','10'),
 	('Elementary and Secondary Education Act','Society','11'),
 	('Higher Education Act of 1965','Society','12'),
-	('Support Central','dministration services','13'),
+	('Support Central','Administration services','13'),
 	('The Office Management Team','Administration services','14'),
 	('Office Agents','Administration services','15'),
 	('Better Business Assistants','Administration services','16'),
