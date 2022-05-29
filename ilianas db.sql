@@ -65,8 +65,8 @@ CREATE TABLE Research_Center
   CONSTRAINT `fk_research_center_organisation` FOREIGN KEY (organisation_id) REFERENCES Organisation(organisation_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-alter table Research_center add constraint check(Proupologismos_apo_Ypourgeio_Paideias > 0); 
-alter table Research_center add constraint check(Proupologismos_apo_Idiotikes_draseis > 0); 
+alter table Research_Center add constraint check(Proupologismos_apo_Ypourgeio_Paideias > 0); 
+alter table Research_Center add constraint check(Proupologismos_apo_Idiotikes_draseis > 0); 
 
 
 CREATE TABLE Organisation_Phones
@@ -96,7 +96,7 @@ CREATE TABLE Project
   beginning VARCHAR(20) NOT NULL,
   ending VARCHAR(20) NOT NULL,
   duration SMALLINT NOT NULL,
-  summary VARCHAR(45) NOT NULL,
+  summary VARCHAR(200) NOT NULL,
   project_id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
   grade INT NOT NULL,
   date VARCHAR(20) NOT NULL,
@@ -143,7 +143,7 @@ CREATE TABLE Works_in_Project
 
 alter table Project add constraint check(amount between 100000 and 1000000);
 
-alter table Project add constraint check(beginning < ending);
+-- alter table Project add constraint check(beginning < ending);
 
 alter table Project add constraint check(grade > 0);
 
@@ -202,7 +202,7 @@ VALUES
 	('loula Kaloula','14'),
 	('Peggy Gou','15');
 
-INSERT INTO Research_field
+INSERT INTO Research_Field
 	(`name`) 
 VALUES 
 	('Mathematics'),
@@ -278,7 +278,7 @@ VALUES
 	('6260000','29'),
 	('1112000','30');
 
-INSERT into Research_center 
+INSERT into Research_Center 
 	(`Proupologismos_apo_Idiotikes_draseis`,`Proupologismos_apo_Ypourgeio_Paideias`,`organisation_id`) 
 VALUES 
 	('2445000','3874209','17'),
@@ -292,7 +292,7 @@ VALUES
 	('2100000','987654','25'),
 	('1190000','8000000','26');
 
-INSERT into Organisation_phones  
+INSERT into Organisation_Phones  
 	(`phones`,`organisation_id`) 
 VALUES 
 	('(802) 898-8461','1'),
@@ -451,26 +451,22 @@ VALUES
 	('female','Aggeliou','01-04-1974','Aggeliki','100','10');
 	
 
-INSERT into Project
-	(`amount`,`title`,`beginning`,`ending`,`duration`,`summary`,`project_id`,`grade`,`date`,`stelehos_id`,`programm_id`,`supervisor_id`,`grader_id`,`organisation_id`) 
-VALUES 
-	('200.000','Mopping the sea','01-01-2020','01-01-2023','3','lorem ipsum','1','1','1','1','1','1'),
+-- INSERT into Project
+-- 	(`amount`,`title`,`beginning`,`ending`,`duration`,`summary`,`project_id`,`grade`,`date`,`stelehos_id`,`programm_id`,`supervisor_id`,`grader_id`,`organisation_id`) 
+-- VALUES 
+-- 	('200.000','Mopping the sea','01-01-2020','01-01-2023','3','lorem ipsum','1','1','1','1','1','1'),
 	
-INSERT into Delivered
-	(`title`,`summary`,`delivered_id`,`project_id`) 
-VALUES 
+-- INSERT into Delivered
+-- 	(`title`,`summary`,`delivered_id`,`project_id`) 
+-- VALUES 
 
-INSERT into Project_research_field 
-	(`project_id`,`name`) 
-VALUES 
+-- INSERT into Project_research_field 
+-- 	(`project_id`,`name`) 
+-- VALUES 
 
-INSERT into Works_in_project  
-	(`project_id`,`researcher_id`) 
-VALUES 
-
-create view active_projects as 
-select * from project 
-where
+-- INSERT into Works_in_project  
+-- 	(`project_id`,`researcher_id`) 
+-- VALUES 
 
 
 
