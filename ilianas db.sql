@@ -454,7 +454,7 @@ VALUES
 INSERT into Project
 	(`amount`,`title`,`beginning`,`ending`,`duration`,`summary`,`project_id`,`grade`,`date`,`stelehos_id`,`programm_id`,`supervisor_id`,`grader_id`,`organisation_id`) 
 VALUES 
-	('200.000','������ �����','01-01-2020','�������� ����� �������� ���� ��������������','01-01-2023','1','7','03-12-2019','1','1','1','1','1'),
+	('200.000','Mopping the sea','01-01-2020','01-01-2023','3','lorem ipsum','1','1','1','1','1','1'),
 	
 INSERT into Delivered
 	(`title`,`summary`,`delivered_id`,`project_id`) 
