@@ -575,7 +575,7 @@ VALUES
 	('Delivered37','lorem ipsum','37','37'),
 	('Delivered38','lorem ipsum','38','38');
 
-INSERT into Project_research_field 
+INSERT into Project_Research_Field 
 	(`project_id`,`name`) 
 VALUES 
 	('1','Mathematics'),
@@ -659,7 +659,7 @@ VALUES
 	('79','Politics');
 
 
-INSERT into Works_in_project  
+INSERT into Works_in_Project  
 	(`project_id`,`researcher_id`) 
 VALUES
 	('1','31'),
