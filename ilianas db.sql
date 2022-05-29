@@ -468,6 +468,10 @@ INSERT into Works_in_project
 	(`project_id`,`researcher_id`) 
 VALUES 
 
+create view active_projects as 
+select * from project 
+where
+
 
 
 
