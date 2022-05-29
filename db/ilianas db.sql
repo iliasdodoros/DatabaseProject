@@ -1,6 +1,20 @@
 use elidek;
 show tables;
 
+drop table Works_in_Project;
+drop table University;
+drop table Company;
+drop table Research_Center;
+drop table Organisation_Phones;
+drop table Delivered;
+drop table Project_Research_Field;
+drop table Research_Field ;
+drop table Project;
+drop table Researcher;
+drop table Stelehos;
+drop table Organisation;
+drop table Programm;
+
 CREATE TABLE Stelehos
 (
   name VARCHAR(45)NOT NULL,
