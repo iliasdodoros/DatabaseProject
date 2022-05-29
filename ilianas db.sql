@@ -451,17 +451,10 @@ VALUES
 	('female','Aggeliou','01-04-1974','Aggeliki','100','10');
 	
 
-<<<<<<< HEAD
 INSERT into Project
 	(`amount`,`title`,`beginning`,`ending`,`duration`,`summary`,`project_id`,`grade`,`date_of_grading`,`stelehos_id`,`programm_id`,`supervisor_id`,`grader_id`,`organisation_id`) 
 VALUES 
 	('200.000','Mopping the sea','01-01-2020','01-01-2023','3','lorem ipsum','1','1','1','1','1','1'),
-=======
--- INSERT into Project
--- 	(`amount`,`title`,`beginning`,`ending`,`duration`,`summary`,`project_id`,`grade`,`date`,`stelehos_id`,`programm_id`,`supervisor_id`,`grader_id`,`organisation_id`) 
--- VALUES 
--- 	('200.000','Mopping the sea','01-01-2020','01-01-2023','3','lorem ipsum','1','1','1','1','1','1'),
->>>>>>> d860ad0e450e6e88357008b5de9c023fd152956e
 	
 -- INSERT into Delivered
 -- 	(`title`,`summary`,`delivered_id`,`project_id`) 
