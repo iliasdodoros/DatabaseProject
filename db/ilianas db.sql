@@ -211,7 +211,7 @@ VALUES
 	('Economics'),
 	('Chemistry'),
 	('Sociology'),
-	('Polics'),
+	('Politics'),
 	('Astrology');
 
 
@@ -546,7 +546,7 @@ VALUES
 	('4','Economics'),
 	('5','Chemistry'),
 	('6','Sociology'),
-	('7','Polics'),
+	('7','Politics'),
 	('8','Astrology'),
 	('9','Mathematics'),
 	('10','History'),
@@ -554,7 +554,7 @@ VALUES
 	('12','Economics'),
 	('13','Chemistry'),
 	('14','Sociology'),
-	('15','Polics'),
+	('15','Politics'),
 	('16','Astrology'),
 	('17','Mathematics'),
 	('18','History'),
@@ -562,7 +562,7 @@ VALUES
 	('20','Economics'),
 	('21','Chemistry'),
 	('22','Sociology'),
-	('23','Polics'),
+	('23','Politics'),
 	('24','Astrology'),
 	('25','Mathematics'),
 	('26','History'),
@@ -570,7 +570,7 @@ VALUES
 	('28','Economics'),
 	('29','Chemistry'),
 	('30','Sociology'),
-	('31','Polics'),
+	('31','Politics'),
 	('32','Astrology'),
 	('33','Mathematics'),
 	('34','History'),
@@ -578,7 +578,7 @@ VALUES
 	('36','Economics'),
 	('37','Chemistry'),
 	('38','Sociology'),
-	('39','Polics'),
+	('39','Politics'),
 	('40','Astrology'),
 	('41','Mathematics'),
 	('42','History'),
@@ -586,7 +586,7 @@ VALUES
 	('44','Economics'),
 	('45','Chemistry'),
 	('46','Sociology'),
-	('47','Polics'),
+	('47','Politics'),
 	('48','Astrology'),
 	('49','Mathematics'),
 	('50','History'),
@@ -594,7 +594,7 @@ VALUES
 	('52','Economics'),
 	('53','Chemistry'),
 	('54','Sociology'),
-	('55','Polics'),
+	('55','Politics'),
 	('56','Astrology'),
 	('57','Mathematics'),
 	('58','History'),
@@ -602,7 +602,7 @@ VALUES
 	('60','Economics'),
 	('61','Chemistry'),
 	('62','Sociology'),
-	('63','Polics'),
+	('63','Politics'),
 	('64','Astrology'),
 	('65','Mathematics'),
 	('66','History'),
@@ -610,7 +610,7 @@ VALUES
 	('68','Economics'),
 	('69','Chemistry'),
 	('70','Sociology'),
-	('71','Polics'),
+	('71','Politics'),
 	('72','Astrology'),
 	('73','Mathematics'),
 	('74','History'),
@@ -618,7 +618,7 @@ VALUES
 	('76','Economics'),
 	('77','Chemistry'),
 	('78','Sociology'),
-	('79','Polics');
+	('79','Politics');
 
 
 -- INSERT into Works_in_project  
