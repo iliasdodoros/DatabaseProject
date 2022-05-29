@@ -5,3 +5,4 @@ inner join project p on wip.project_id = p.project_id
 inner join project_research_field prf on p.project_id = prf.project_id 
 
 where (prf.name =  )
+and (p.beginning < (SELECT CAST( GETDATE() AS Date )) and p.ending > (SELECT CAST( GETDATE() AS Date )));
