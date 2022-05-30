@@ -1,4 +1,3 @@
-from curses import raw
 from dataclasses import field, fields
 from datetime import date
 from flask import Blueprint, render_template, request
@@ -59,7 +58,7 @@ def Research():
     listed = list(result)
     return render_template("Researcher.html", result=listed, rows=len(result), columns=len(result[0]), boolean=True)
 
-
+ 
 @views.route('/Programm')
 def Researcher():
     found = mycursor.execute('SELECT * FROM Stelehos')
