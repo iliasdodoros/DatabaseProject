@@ -1,3 +1,4 @@
+from curses import raw
 from dataclasses import field, fields
 from datetime import date
 from flask import Blueprint, render_template, request
@@ -7,7 +8,8 @@ ourdb = mysql.connector.connect(
     host="localhost", user="root", password="", database="elidek")
 
 
-mycursor = ourdb.cursor(buffered=True)
+mycursor = ourdb.cursor()
+mycursor2 = ourdb.cursor()
 
 views = Blueprint('views', __name__)
 
@@ -44,17 +46,15 @@ def Researcher():
     fields = mycursor.fetchall()
     return render_template("Programm.html", researchers=researchers, fields=fields)
 
-
 @views.route('/Research_Field', methods=['GET', 'POST'])
 def Research_Field():
+    
     lost = mycursor.execute( f'SELECT * FROM Research_Field')
-    fields=[]
-    for field in fields:
-        fields.append[field]
+    fields=mycursor.fetchall()
     if request.method=='POST':
         choice = request.form["resfield"]
         if choice:
-            lost = mycursor.execute(f'''(select p.title, r.last_name, r.first_name
+            script=f'''(select p.title, r.last_name, r.first_name
                                     from Researcher r
                                     inner join Works_in_Project wip on r.researcher_id = wip.researcher_id
                                     inner join Project p on wip.project_id = p.project_id
@@ -67,8 +67,9 @@ def Research_Field():
                                     inner join Project p on r.researcher_id = p.supervisor_id
                                     inner join Project_Research_Field prf on p.project_id = prf.project_id
                                     where (prf.name = '{choice}')
-                                    and ((p.beginning < current_date())  and (p.ending > current_date())));''', multi=True)
-            # results=mycursor.fetchall()
-            return render_template("Research_Field.html",fields=fields, results=results,rows=len(results), columns=len(results[0]), boolean=True)
+                                    and ((p.beginning < current_date())  and (p.ending > current_date())));'''
+            lost = mycursor2.execute(script)
+            results=mycursor2.fetchall()
+            return render_template("Research_Field.html",fields=fields,choice=choice, results=results,rows=len(results), columns=len(results), boolean=True)
     else:
         return render_template("Research_Field.html",fields=fields)

@@ -1,33 +1,30 @@
 {% extends "base.html" %} {% block title %}Organismos{% endblock %} {% block content
-    %}
-   <form method="POST">
-       <h3 align="center">Which organizations have received the same number of projects over two consecutive years?</h3>
-       <div class="form-group">
-           <label for = "organismoi">Enter the years you want</label>
-           <input type="search" 
-                   class="form-control" 
-                   id="organismoi" 
-                   name="i" 
-                   placeholder=""
-                   />
-       </div>
-       <br />
-       <button type="search" class="btn btn-primary">Search</button>
-   </from>
-   <style>
-    table, th, td {
-      border:1px solid rgb(10, 255, 222);
+%}
+<form method="POST">
+  <h3 align="center">Which organizations have received the same number of projects over two consecutive years?</h3>
+  <div class="form-group">
+    <label for="organismoi">Enter the years you want</label>
+    <input type="search" class="form-control" id="organismoi" name="i" placeholder="" />
+  </div>
+  <br />
+  <button type="search" class="btn btn-primary">Search</button>
+  </from>
+  <style>
+    table,
+    th,
+    td {
+      border: 1px solid rgb(10, 255, 222);
     }
-    </style>
-   <table style="width:100%">
+  </style>
+  <table style="width:100%">
     {%if rows%}
-      {% for i in range(rows) %}
-      <tr>
-        {% for j in range(columns) %}
-        <td>{{ table[i][j] }}</td>
-        {% endfor %}  
-      </tr>
+    {% for i in range(rows) %}
+    <tr>
+      {% for j in range(columns) %}
+      <td>{{ table[i][j] }}</td>
       {% endfor %}
+    </tr>
+    {% endfor %}
     {%endif%}
   </table>
-{% endblock %}
+  {% endblock %}
