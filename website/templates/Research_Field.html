@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <h1 style="color: rgb(197, 6, 240)">
+    <h1>
         Science_field
     </h1>
 
@@ -24,6 +24,14 @@
         <br><br>
         <input type="submit" value="Submit">
     </form>
+<br><br>
+    <style>
+        table,
+        th,
+        td {
+            border: 2px solid rgb(0, 0, 0);
+        }
+    </style>
     <table style="width:100%">
         {%if rows%}
         {% for i in range(rows) %}
@@ -36,7 +44,7 @@
         {%endif%}
     </table>
 
-</body>
+</body2>
 
 {%endblock%}
 
