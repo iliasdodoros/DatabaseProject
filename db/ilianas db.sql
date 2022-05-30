@@ -777,3 +777,11 @@ VALUES
 	('20','29'),
 	('21','30');
 	
+
+INSERT INTO elidek.Project (amount,title,beginning,ending,duration,summary,grade,date_of_grading,stelehos_id,programm_id,supervisor_id,grader_id,organisation_id) VALUES
+	 (391820,'Singing','2022-01-01','2024-01-01',24,'consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien',3,'2021-12-01',1,1,44,1,14);
+	
+INSERT into Works_in_Project  
+	(`project_id`,`researcher_id`) 
+VALUES
+	('80','74');
