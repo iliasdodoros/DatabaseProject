@@ -19,7 +19,7 @@
             <label for="resfield">Choose a Reasearch Field</label>
             <select id="resfield" multiple>
                 {%for field in fields%}
-                <option value="{{field[0]}}">{{field[0]}}</option>
+                <option value="{{field}}">{{field}}</option>
                 {%endfor%}
             </select>
             <input type="submit" class="form-control" id="resfield" name="resfield" placeholder="" />
