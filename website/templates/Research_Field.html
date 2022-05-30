@@ -1,44 +1,31 @@
 <!DOCTYPE html>
-{% extends "base.html" %} {% block title %}Stelehos{% endblock %} {% block content
-    %}
- 
+{% extends "base.html" %} {% block title %}Research_Field{% endblock %} {% block content
+%}
+
 <head>
     <title>
         How to get selected value in
         dropdown list using JavaScript?
     </title>
 </head>
- 
+
 <body>
     <h1 style="color: rgb(197, 6, 240)">
         Science_field
     </h1>
-     
- 
-<p> Select two from the given options:
-        <select id="select" multiple> 
-            {%for field in fields%}
-            <option value="{{field[0]}}">{{field[0]}}</option>
-            {%endfor%}
-        </select>
-    </p>
- 
- 
-    
-<p> The value of the option selected is:
-        <span class="output"></span>
-    </p>
- 
-    <button onclick="getOption()">Check option1</button>
-    <script type="text/javascript">
- //https://www.geeksforgeeks.org/how-to-get-selected-value-in-dropdown-list-using-javascript/
-    function getOption() {
-        selectElement = document.querySelector('#select');
-        output = selectElement.options[selectElement.selectedIndex].value;
-        document.querySelector('.output').textContent = output;
-    }
-    </script>
+
+    <form method="POST">
+        <div class="form-group">
+            <label for="resfield">Choose a Reasearch Field</label>
+            <select id="resfield" multiple>
+                {%for field in fields%}
+                <option value="{{field[0]}}">{{field[0]}}</option>
+                {%endfor%}
+            </select>
+            <input type="submit" class="form-control" id="resfield" name="resfield" placeholder="" />
+        </div>
+    </form>
 </body>
 {%endblock%}
+
 </html>
-  
