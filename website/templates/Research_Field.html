@@ -25,7 +25,19 @@
             <input type="submit" class="form-control" id="resfield" name="resfield" placeholder="" />
         </div>
     </form>
+    <table style="width:100%">
+        {%if rows%}
+        {% for i in range(rows) %}
+        <tr>
+            {% for j in range(columns) %}
+            <td>{{ results[i][j] }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+        {%endif%}
+    </table>
 </body>
+
 {%endblock%}
 
 </html>
