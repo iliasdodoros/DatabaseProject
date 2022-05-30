@@ -15,4 +15,7 @@ from researcher r
 inner join active_projects ap on r.researcher_id  = ap.supervisor_id
 where r.date_of_birth > '1981-12-31' 
 group by r.last_name ) 
-order by projects_working_on  ;
+order by projects_working_on desc ;
+
+
+
