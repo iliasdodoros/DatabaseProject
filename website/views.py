@@ -31,12 +31,6 @@ def Organismos():
         return render_template("Organismos.html", boolean=True)
 
 
-@views.route('/Stelehos')
-def Stelehos():
-
-    return render_template("Stelehos.html",)
-
-
 @views.route('/Researcher')
 def Research():
     lol = mycursor.execute('''(select r.last_name, r.first_name, count(*) as projects_working_on 
@@ -58,7 +52,20 @@ def Research():
     listed = list(result)
     return render_template("Researcher.html", result=listed, rows=len(result), columns=len(result[0]), boolean=True)
 
- 
+@views.route('/Stelehos')
+def Stelehos():
+    wow = mycursor.execute('''
+                            select s.name, pc.name, pc.total_amount  
+                            from projects_of_companies pc 
+                            inner join stelehos s on pc.stelehos_id = s.stelehos_id 
+                            order by pc.total_amount desc 
+                            limit 5;
+
+                            ''')
+    result1 = mycursor.fetchall()
+    listed1 = list(result1)
+    return render_template("Stelehos.html", result1=listed1, rows=len(result1), columns=len(result1[0]), boolean=True)
+
 @views.route('/Programm')
 def Researcher():
     found = mycursor.execute('SELECT * FROM Stelehos')
@@ -66,7 +73,6 @@ def Researcher():
     vlaka = mycursor.execute('SELECT * FROM Research_Field')
     fields = mycursor.fetchall()
     return render_template("Programm.html", researchers=researchers, fields=fields)
-
 
 @views.route('/Research_Field', methods=['GET', 'POST'])
 def Research_Field():
