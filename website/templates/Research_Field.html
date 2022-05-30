@@ -2,18 +2,13 @@
 {% extends "base.html" %} {% block title %}Research_Field{% endblock %} {% block content
 %}
 
-<head>
-    <title>
-        How to get selected value in
-        dropdown list using JavaScript?
-    </title>
-</head>
+
+<h1>
+    Research Field
+</h1>
 
 <body>
-    <h1 style="color: rgb(197, 6, 240)">
-        Science_field
-    </h1>
-
+    <br><br>
     <form method="POST">
         <label for="resfield">Choose a Reasearch Field</label>
         <select name="resfield" id="resfield">
@@ -24,8 +19,21 @@
         <br><br>
         <input type="submit" value="Submit">
     </form>
-    <table style="width:100%">
+    <br><br>
+    <style>
+        table,
+        th,
+        td {
+            border: 2px solid rgb(0, 0, 0);
+        }
+    </style>
+    <table style="width: 100%">
         {%if rows%}
+        <tr>
+            <th>Project</th>
+            <th>Researcher's First Name</th>
+            <th>Researcher's Last Name</th>
+        </tr>
         {% for i in range(rows) %}
         <tr>
             {% for j in range(columns) %}
@@ -36,8 +44,8 @@
         {%endif%}
     </table>
 
-</body>
+    </body2>
 
-{%endblock%}
+    {%endblock%}
 
-</html>
+    </html>
