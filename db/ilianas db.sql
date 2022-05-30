@@ -544,8 +544,8 @@ INSERT INTO elidek.Project (amount,title,beginning,ending,duration,summary,grade
 	 (822343,'Wild boar','2023-10-01','2027-10-01',48,'orci nullam molestie nibh in',6,'2023-08-31',6,16,76,55,16),
 	 (141068,'Wombat, common','2023-11-01','2027-11-01',48,'a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id',7,'2023-10-01',7,17,77,56,17),
 	 (780046,'Wombat, southern hairy-nosed','2023-12-01','2027-12-01',48,'sed justo pellentesque viverra pede ac diam',8,'2023-10-31',8,18,78,57,18),
-	 (813608,'XEROSTOM','2024-01-01','2028-01-01',48,'malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin',9,'2023-12-01',9,19,79,58,19);
-
+	 (813608,'XEROSTOM','2024-01-01','2028-01-01',48,'malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin',9,'2023-12-01',9,19,79,58,19),
+	 (391820,'Singing','2022-01-01','2024-01-01',24,'consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien',3,'2021-12-01',1,1,44,1,14);
 	
 INSERT into Delivered
 	(`title`,`summary`,`delivered_id`,`project_id`) 
@@ -775,13 +775,53 @@ VALUES
 	('18','27'),
 	('19','28'),
 	('20','29'),
-	('21','30');
-	
+	('21','30'),
+	('80','74');	
 
-INSERT INTO elidek.Project (amount,title,beginning,ending,duration,summary,grade,date_of_grading,stelehos_id,programm_id,supervisor_id,grader_id,organisation_id) VALUES
-	 (391820,'Singing','2022-01-01','2024-01-01',24,'consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien',3,'2021-12-01',1,1,44,1,14);
-	
-INSERT into Works_in_Project  
-	(`project_id`,`researcher_id`) 
-VALUES
-	('80','74');
+
+-- -------------------------------------------
+-- VIEWS -------------------------------------
+-- -------------------------------------------
+
+create view equal as
+	(select o.name, o.organisation_id, count(*) as number_of_projects
+	from Organisation o 
+	inner join Project p on p.organisation_id = o.organisation_id 
+	where beginning > '2019-12-31' and beginning < '2021-01-01'
+	group by o.organisation_id ) 
+	intersect
+	(select o.name, o.organisation_id, count(*) as number_of_projects
+	from Organisation o 
+	inner join Project p on p.organisation_id = o.organisation_id 
+	where beginning > '2020-12-31' and beginning < '2022-01-01'
+	group by o.organisation_id );
+
+
+create view active_projects as
+	select * from Project p 
+	where ((p.beginning < current_date())  and (p.ending > current_date()));	
+
+
+create view projects_of_companies as
+	select sum(p.amount) as total_amount, p.title, p.project_id, p.stelehos_id, p.programm_id, p.organisation_id, o.name 
+	from project p inner join company c on p.organisation_id = c.organisation_id 
+	inner join organisation o on o.organisation_id = c.organisation_id 
+	group by p.stelehos_id, o.name;
+
+
+create view res_proj_no_del as
+	(select r.last_name, r.first_name, count(*) as projects_working_on
+	from researcher r 
+	inner join works_in_project wip on r.researcher_id = wip.researcher_id 
+	inner join project p on wip.project_id = p.project_id 
+	left join delivered d on p.project_id = d.project_id 
+	where d.title is null 
+	group by r.last_name)
+	union
+	(select r.last_name, r.first_name, count(*) as projects_working_on 
+	from researcher r 
+	inner join project p on r.researcher_id  = p.supervisor_id
+	left join delivered d on p.project_id = d.project_id 
+	where d.title is null 
+	group by r.last_name ) 
+	order by projects_working_on desc;
