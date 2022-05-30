@@ -1,3 +1,4 @@
+from curses import raw
 from dataclasses import field, fields
 from datetime import date
 from flask import Blueprint, render_template, request
@@ -7,7 +8,7 @@ ourdb = mysql.connector.connect(
     host="localhost", user="root", password="", database="elidek")
 
 
-mycursor1 = ourdb.cursor()
+mycursor = ourdb.cursor()
 mycursor2 = ourdb.cursor()
 
 views = Blueprint('views', __name__)
@@ -23,8 +24,8 @@ def Organismos():
     if request.method == 'POST':
         data = request.form["i"]
         if data:
-            lost = mycursor1.execute(f'SELECT * FROM {data}')
-            table = mycursor1.fetchall()
+            lost = mycursor.execute(f'SELECT * FROM {data}')
+            table = mycursor.fetchall()
             listed = list(table)
             return render_template("Organismos.html", table=listed, rows=len(table), columns=len(table[0]), boolean=True)
     else:
@@ -58,36 +59,36 @@ def Research():
 
 @views.route('/Programm')
 def Researcher():
-    found = mycursor1.execute('SELECT * FROM Stelehos')
-    researchers = mycursor1.fetchall()
-    vlaka = mycursor1.execute('SELECT * FROM Research_Field')
-    fields = mycursor1.fetchall()
+    found = mycursor.execute('SELECT * FROM Stelehos')
+    researchers = mycursor.fetchall()
+    vlaka = mycursor.execute('SELECT * FROM Research_Field')
+    fields = mycursor.fetchall()
     return render_template("Programm.html", researchers=researchers, fields=fields)
-
 
 @views.route('/Research_Field', methods=['GET', 'POST'])
 def Research_Field():
-
-    lost = mycursor1.execute(f'SELECT * FROM Research_Field')
-    fields = mycursor1.fetchall()
-    if request.method == 'POST':
+    
+    lost = mycursor.execute( f'SELECT * FROM Research_Field')
+    fields=mycursor.fetchall()
+    if request.method=='POST':
         choice = request.form["resfield"]
         if choice:
-            lost = mycursor2.execute(f'''(select p.title, r.last_name, r.first_name  
-                                    from Researcher r 
-                                    inner join Works_in_Project wip on r.researcher_id = wip.researcher_id 
-                                    inner join Project p on wip.project_id = p.project_id 
+            script=f'''(select p.title, r.last_name, r.first_name
+                                    from Researcher r
+                                    inner join Works_in_Project wip on r.researcher_id = wip.researcher_id
+                                    inner join Project p on wip.project_id = p.project_id
                                     inner join Project_Research_Field prf on p.project_id = prf.project_id
                                     where (prf.name = '{choice}')
                                     and ((p.beginning < current_date())  and (p.ending > current_date())))
-                                    union 
-                                    (select p.title, r.last_name, r.first_name  
-                                    from Researcher r 
-                                    inner join Project p on r.researcher_id = p.supervisor_id 
-                                    inner join Project_Research_Field prf on p.project_id = prf.project_id 
+                                    union
+                                    (select p.title, r.last_name, r.first_name
+                                    from Researcher r
+                                    inner join Project p on r.researcher_id = p.supervisor_id
+                                    inner join Project_Research_Field prf on p.project_id = prf.project_id
                                     where (prf.name = '{choice}')
-                                    and ((p.beginning < current_date())  and (p.ending > current_date())));''', multi=True)
-            results = mycursor2.fetchall()
-            return render_template("Research_Field.html", fields=fields, results=results,rows=len(results), columns=len(results[0]), boolean=True)
-
-    return render_template("Research_Field.html", fields=fields)
+                                    and ((p.beginning < current_date())  and (p.ending > current_date())));'''
+            lost = mycursor2.execute(script)
+            results=mycursor2.fetchall()
+            return render_template("Research_Field.html",fields=fields,choice=choice, results=results,rows=len(results), columns=len(results), boolean=True)
+    else:
+        return render_template("Research_Field.html",fields=fields)
