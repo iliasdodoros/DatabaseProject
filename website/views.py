@@ -37,25 +37,28 @@ def Stelehos():
 
     return render_template("Stelehos.html",)
 
+
 @views.route('/Researcher')
 def Research():
-    lol  = mycursor1.execute(f'''(select r.last_name, r.first_name, count(*) as projects_working_on 
-                                        from researcher r 
-                                        inner join works_in_project wip on r.researcher_id = wip.researcher_id 
-                                        inner join active_projects ap on wip.project_id = ap.project_id 
-                                        where r.date_of_birth > '1981-12-31'
-                                        group by r.last_name)
-                                        union 
-                                        (select r.last_name, r.first_name, count(*) as projects_working_on 
-                                        from researcher r 
-                                        inner join active_projects ap on r.researcher_id  = ap.supervisor_id
-                                        where r.date_of_birth > '1981-12-31' 
-                                        group by r.last_name ) 
-                                        order by projects_working_on desc ;''',multi=True)
-    result = mycursor1.fetchall()
+    lol = mycursor.execute('''(select r.last_name, r.first_name, count(*) as projects_working_on 
+                            from Researcher r 
+                            inner join Works_in_Project wip on r.researcher_id = wip.researcher_id 
+                            inner join active_projects ap on wip.project_id = ap.project_id 
+                            where r.date_of_birth > '1981-12-31'
+                            group by r.last_name)
+                            union 
+                            (select r.last_name, r.first_name, count(*) as projects_working_on 
+                            from Researcher r 
+                            inner join active_projects ap on r.researcher_id  = ap.supervisor_id
+                            where r.date_of_birth > '1981-12-31' 
+                            group by r.last_name ) 
+                            order by projects_working_on desc ;
+
+                            ''')
+    result = mycursor.fetchall()
     listed = list(result)
-    return render_template("Research.html", result=listed, rows=len(result), columns=len(result[0]), boolean=True)
-    
+    return render_template("Researcher.html", result=listed, rows=len(result), columns=len(result[0]), boolean=True)
+
 
 @views.route('/Programm')
 def Researcher():
@@ -65,15 +68,16 @@ def Researcher():
     fields = mycursor.fetchall()
     return render_template("Programm.html", researchers=researchers, fields=fields)
 
+
 @views.route('/Research_Field', methods=['GET', 'POST'])
 def Research_Field():
-    
-    lost = mycursor.execute( f'SELECT * FROM Research_Field')
-    fields=mycursor.fetchall()
-    if request.method=='POST':
+
+    lost = mycursor.execute(f'SELECT * FROM Research_Field')
+    fields = mycursor.fetchall()
+    if request.method == 'POST':
         choice = request.form["resfield"]
         if choice:
-            script=f'''(select p.title, r.last_name, r.first_name
+            script = f'''(select p.title, r.last_name, r.first_name
                                     from Researcher r
                                     inner join Works_in_Project wip on r.researcher_id = wip.researcher_id
                                     inner join Project p on wip.project_id = p.project_id
@@ -88,7 +92,7 @@ def Research_Field():
                                     where (prf.name = '{choice}')
                                     and ((p.beginning < current_date())  and (p.ending > current_date())));'''
             lost = mycursor2.execute(script)
-            results=mycursor2.fetchall()
-            return render_template("Research_Field.html",fields=fields,choice=choice, results=results,rows=len(results), columns=len(results), boolean=True)
+            results = mycursor2.fetchall()
+            return render_template("Research_Field.html", fields=fields, choice=choice, results=results, rows=len(results), columns=len(results), boolean=True)
     else:
-        return render_template("Research_Field.html",fields=fields)
+        return render_template("Research_Field.html", fields=fields)
