@@ -98,6 +98,6 @@ def Research_Field():
                                     and ((p.beginning < current_date())  and (p.ending > current_date())));'''
             lost = mycursor2.execute(script)
             results = mycursor2.fetchall()
-            return render_template("Research_Field.html", fields=fields, choice=choice, results=results, rows=len(results), columns=len(results), boolean=True)
+            return render_template("Research_Field.html", fields=fields, choice=choice, results=results, rows=len(results), columns=len(results[0]), boolean=True)
     else:
         return render_template("Research_Field.html", fields=fields)
