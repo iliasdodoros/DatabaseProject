@@ -808,49 +808,49 @@ VALUES
 -- VIEWS -------------------------------------
 -- -------------------------------------------
 
-create view equal as
-	(select o.name, o.organisation_id, count(*) as number_of_projects
-	from Organisation o 
-	inner join Project p on p.organisation_id = o.organisation_id 
-	where beginning > '2019-12-31' and beginning < '2021-01-01'
-	group by o.organisation_id ) 
-	intersect
-	(select o.name, o.organisation_id, count(*) as number_of_projects
-	from Organisation o 
-	inner join Project p on p.organisation_id = o.organisation_id 
-	where beginning > '2020-12-31' and beginning < '2022-01-01'
-	group by o.organisation_id );
+-- create view equal as
+-- 	(select o.name, o.organisation_id, count(*) as number_of_projects
+-- 	from Organisation o 
+-- 	inner join Project p on p.organisation_id = o.organisation_id 
+-- 	where beginning > '2019-12-31' and beginning < '2021-01-01'
+-- 	group by o.organisation_id ) 
+-- 	intersect
+-- 	(select o.name, o.organisation_id, count(*) as number_of_projects
+-- 	from Organisation o 
+-- 	inner join Project p on p.organisation_id = o.organisation_id 
+-- 	where beginning > '2020-12-31' and beginning < '2022-01-01'
+-- 	group by o.organisation_id );
 
 
-create view active_projects as
-	select * from Project p 
-	where ((p.beginning < current_date())  and (p.ending > current_date()));	
+-- create view active_projects as
+-- 	select * from Project p 
+-- 	where ((p.beginning < current_date())  and (p.ending > current_date()));	
 
 
-create view projects_of_companies as
-	select sum(p.amount) as total_amount, p.title, p.project_id, p.stelehos_id, p.programm_id, p.organisation_id, o.name 
-	from Project p inner join Company c on p.organisation_id = c.organisation_id 
-	inner join Organisation o on o.organisation_id = c.organisation_id 
-	group by p.stelehos_id, o.name;
+-- create view projects_of_companies as
+-- 	select sum(p.amount) as total_amount, p.title, p.project_id, p.stelehos_id, p.programm_id, p.organisation_id, o.name 
+-- 	from Project p inner join Company c on p.organisation_id = c.organisation_id 
+-- 	inner join Organisation o on o.organisation_id = c.organisation_id 
+-- 	group by p.stelehos_id, o.name;
 
 
-create view res_proj_no_del as
-	(select r.last_name, r.first_name, count(*) as projects_working_on
-	from Researcher r 
-	inner join Works_in_Project wip on r.researcher_id = wip.researcher_id 
-	inner join Project p on wip.project_id = p.project_id 
-	left join Delivered d on p.project_id = d.project_id 
-	where d.title is null 
-	group by r.last_name)
-	union
-	(select r.last_name, r.first_name, count(*) as projects_working_on 
-	from Researcher r 
-	inner join Project p on r.researcher_id  = p.supervisor_id
-	left join Delivered d on p.project_id = d.project_id 
-	where d.title is null 
-	group by r.last_name ) 
-	order by projects_working_on desc;
+-- create view res_proj_no_del as
+-- 	(select r.last_name, r.first_name, count(*) as projects_working_on
+-- 	from Researcher r 
+-- 	inner join Works_in_Project wip on r.researcher_id = wip.researcher_id 
+-- 	inner join Project p on wip.project_id = p.project_id 
+-- 	left join Delivered d on p.project_id = d.project_id 
+-- 	where d.title is null 
+-- 	group by r.last_name)
+-- 	union
+-- 	(select r.last_name, r.first_name, count(*) as projects_working_on 
+-- 	from Researcher r 
+-- 	inner join Project p on r.researcher_id  = p.supervisor_id
+-- 	left join Delivered d on p.project_id = d.project_id 
+-- 	where d.title is null 
+-- 	group by r.last_name ) 
+-- 	order by projects_working_on desc;
 
-CREATE VIEW Pair_of_Fields AS
-	select a.project_id, a.Research_Field, b.Research_Field as Research_Field1 from Project_Research_Field a, Project_Research_Field b
-	where a.project_id = b.project_id and a.Research_Field < b.Research_Field;
+-- CREATE VIEW Pair_of_Fields AS
+-- 	select a.project_id, a.Research_Field, b.Research_Field as Research_Field1 from Project_Research_Field a, Project_Research_Field b
+-- 	where a.project_id = b.project_id and a.Research_Field < b.Research_Field;

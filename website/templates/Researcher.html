@@ -1,16 +1,14 @@
-<title>{% block title %}Project{% endblock %}</title>
+{% extends "base.html" %} {% block title %}Researcher{% endblock %} {% block content
+%}
 
 <h1 style="color: rgb(19, 20, 19)">
-  Researchers under 40 (3.6)      -       Researchers working on >=5 projects (3.8)
-    </h1>
+  Researchers under 40 (3.6) - Researchers working on >=5 projects (3.8)
+</h1>
 
-    
-        
-          <a class="nav-item nav-link" id="Researchers_under_40" href="/Researcher/Researchers_under_40">Researchers_under_40</a>
-    <a class="nav-item nav-link" id="Researchers_working_on" href="/Researcher/Researchers_working_on">Researchers_working_on</a>
-    
-    
-    <div class="container">
-        {% block content %}
-        {% endblock %}
-    </div>
+
+
+<a class="nav-item nav-link" id="Researchers_under_40" href="/Researcher/Researchers_under_40">Researchers_under_40</a>
+<a class="nav-item nav-link" id="Researchers_working_on" href="/Researcher/Researchers_working_on">Researchers_working_on</a>
+
+
+{% endblock %}
