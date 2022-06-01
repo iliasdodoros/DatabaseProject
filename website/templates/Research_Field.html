@@ -6,9 +6,12 @@
 <h1>
     Research Field
 </h1>
+<br>
+
 
 <body>
-    <br><br>
+    <br>
+
     <form method="POST">
         <label for="resfield">Choose a Reasearch Field</label>
         <select name="resfield" id="resfield">
@@ -19,7 +22,9 @@
         <br><br>
         <input type="submit" value="Submit">
     </form>
-    <br><br>
+    <br>
+    <br>
+
     <style>
         table,
         th,
@@ -27,6 +32,7 @@
             border: 2px solid rgb(0, 0, 0);
         }
     </style>
+
     <table style="width: 100%">
         {%if rows%}
         <tr>
@@ -44,8 +50,8 @@
         {%endif%}
     </table>
 
-    </body2>
+</body>
 
-    {%endblock%}
+{%endblock%}
 
-    </html>
+</html>

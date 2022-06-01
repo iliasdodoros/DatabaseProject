@@ -4,11 +4,21 @@
 
 
 <h1>
-   Projects order by researchers 
+    Projects order by researchers
 </h1>
+<br>
 
 <body>
-    
+    <br>
+    <ul class="nav nav-tabs">
+        <a class="nav-link" id="Project_by_researchers" href="/Project/Project_by_researchers">Project by
+            researchers</a>
+        <a class="nav-link" id="Project_by_organisations" href="/Project/Project_by_organisations">Project by
+            organisations</a>
+        <a class="nav-link" id="Project_by_researchers" href="/Project/Top_3_Duos">Top 3 Duos</a>
+    </ul>
+    <br>
+
     <style>
         table,
         th,
@@ -16,6 +26,7 @@
             border: 2px solid rgb(0, 0, 0);
         }
     </style>
+
     <table style="width: 100%">
         {%if rows%}
         <tr>
@@ -32,8 +43,8 @@
         {%endif%}
     </table>
 
-    </body2>
+</body>
 
-    {%endblock%}
+{%endblock%}
 
-    </html>
+</html>

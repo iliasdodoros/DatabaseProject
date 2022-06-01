@@ -1,23 +1,30 @@
 {% extends "base.html" %} {% block title %}Stelehos{% endblock %} {% block content
-  %}
-  <h3 align="center">Top 5 Stelexh with biggest fundings to a Company</h3>
+%}
+<h1 align="center">Top 5 Stelexh with biggest fundings to a Company</h1>
+<br>
 
 <body>
-<style>
-  table, th, td {
-    border:1px solid rgb(10, 51, 255);
-  }
-</style>
- <table style="width:100%">
-  {%if rows%}
+  <br>
+
+  <style>
+    table,
+    th,
+    td {
+      border: 1px solid rgb(10, 51, 255);
+    }
+  </style>
+
+  <table style="width:100%">
+    {%if rows%}
     {% for i in range(rows) %}
     <tr>
       {% for j in range(columns) %}
       <td>{{ result1[i][j] }}</td>
-      {% endfor %}  
+      {% endfor %}
     </tr>
     {% endfor %}
-  {%endif%}
-</table>
-</bdoy>
+    {%endif%}
+  </table>
+
+</body>
 {% endblock %}
