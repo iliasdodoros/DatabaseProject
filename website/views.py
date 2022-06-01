@@ -56,35 +56,32 @@ def Researchers_under_40():
                             ''')
     result = mycursor.fetchall()
     listed = list(result)
-    
     return render_template("Researchers_under_40.html", result=listed, rows=len(result), columns=len(result[0]), boolean=True)
 
 @views.route('/Researcher/Researchers_working_on')
 def Researchers_working_on():
-    lol = mycursor.execute('''select * from (
-                                (select r.last_name, r.first_name, count(*) as projects_working_on
-                                from researcher r 
-                                inner join works_in_project wip on r.researcher_id = wip.researcher_id 
-                                inner join project p on wip.project_id = p.project_id 
-                                left join delivered d on p.project_id = d.project_id 
-                                where d.title is null 
-                                group by r.last_name)
-                                union
-                                (select r.last_name, r.first_name, count(*) as projects_working_on 
-                                from researcher r 
-                                inner join project p on r.researcher_id  = p.supervisor_id
-                                left join delivered d on p.project_id = d.project_id 
-                                where d.title is null 
-                                group by r.last_name ) 
-                                order by projects_working_on desc) A 
-                                where projects_working_on >= 2;
-
+    mpou = mycursor.execute('''select * from (
+                            (select r.last_name, r.first_name, count(*) as projects_working_on
+                            from researcher r 
+                            inner join works_in_project wip on r.researcher_id = wip.researcher_id 
+                            inner join project p on wip.project_id = p.project_id 
+                            left join delivered d on p.project_id = d.project_id 
+                            where d.title is null 
+                            group by r.last_name)
+                            union
+                            (select r.last_name, r.first_name, count(*) as projects_working_on 
+                            from researcher r 
+                            inner join project p on r.researcher_id  = p.supervisor_id
+                            left join delivered d on p.project_id = d.project_id 
+                            where d.title is null 
+                            group by r.last_name ) 
+                            order by projects_working_on desc) A
+                            where projects_working_on >= 5;
 
                             ''')
     result6 = mycursor.fetchall()
     listed6 = list(result6)
-    
-    return render_template("Researchers_working_on.html", result=listed6, rows=len(result6), columns=len(result6[0]), boolean=True)
+    return render_template("Researchers_working_on.html", result6=listed6, rows=len(result6), columns=len(result6[0]), boolean=True)
 
 
 @views.route('/Stelehos')
@@ -171,6 +168,23 @@ def Project_by_organisations():
     result5 = mycursor.fetchall()
     listed5 = list(result5)
     return render_template("Project_by_organisations.html", result5=listed5, rows=len(result5), columns=len(result5[0]), boolean=True)
+
+@views.route('/Project/Top_3_Duos')
+def Top_3_Duos():
+    wow = mycursor.execute('''
+                            select title, project_id, rf_duo, count(*) as counter from (
+                            select prf1.title, prf1.project_id, concat (prf1.name," ", prf2.name) rf_duo
+                            from project_and_rf prf1 
+                            inner join project_and_rf prf2 on prf1.title = prf2.title
+                            where prf1.name != prf2.name and prf1.name < prf2.name) A 
+                            group by rf_duo
+                            order by counter desc
+                            limit 3;
+
+                            ''')
+    result7 = mycursor.fetchall()
+    listed7 = list(result7)
+    return render_template("Top_3_Duos.html", result7=listed7, rows=len(result7), columns=len(result7[0]), boolean=True)
 
 
 

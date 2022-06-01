@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% extends "base.html" %} {% block title %}Project{% endblock %} {% block content
+%}
+
+
+<h1>
+   Top 3 Duos 
+</h1>
+
+<body>
+    
+    <style>
+        table,
+        th,
+        td {
+            border: 2px solid rgb(0, 0, 0);
+        }
+    </style>
+    <table style="width: 100%">
+        {%if rows%}
+        <tr>
+            <th>researcher_name</th>
+            <th>project_title</th>
+        </tr>
+        {% for i in range(rows) %}
+        <tr>
+            {% for j in range(columns) %}
+            <td>{{ result7[i][j] }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+        {%endif%}
+    </table>
+
+    </body2>
+
+    {%endblock%}
+
+    </html>
