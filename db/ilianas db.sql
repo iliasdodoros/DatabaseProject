@@ -778,7 +778,32 @@ VALUES
 	('21','30'),
 	('80','74');	
 
-
+INSERT into Project_Research_Field 
+	(`project_id`,`name`) 
+VALUES 
+	('1','History'),
+	('2','Physics'),
+	('3','Economics'),
+	('4','Chemistry'),
+	('5','Sociology'),
+	('6','Politics'),
+	('7','Astrology'),
+	('8','Mathematics'),
+	('9','History'),
+	('10','Physics'),
+	('11','Economics'),
+	('12','Chemistry'),
+	('13','Sociology'),
+	('14','Politics'),
+	('15','Astrology'),
+	('16','Mathematics'),
+	('1','Economics'),
+	('2','Chemistry'),
+	('3','Sociology'),
+	('4','Politics'),
+	('5','Astrology'),
+	('6','Mathematics'),
+	('7','History');
 -- -------------------------------------------
 -- VIEWS -------------------------------------
 -- -------------------------------------------
