@@ -1,23 +1,16 @@
-{% extends "base.html" %} {% block title %}Research{% endblock %} {% block content
-    %}
-    <h3 align="center">Names of young researchers(<40) and number of projects working on</h3>
+<title>{% block title %}Project{% endblock %}</title>
 
-<body>
-<style>
-    table, th, td {
-      border:1px solid rgb(169, 10, 255);
-    }
-</style>
-   <table style="width:100%">
-    {%if rows%}
-      {% for i in range(rows) %}
-      <tr>
-        {% for j in range(columns) %}
-        <td>{{ result[i][j] }}</td>
-        {% endfor %}  
-      </tr>
-      {% endfor %}
-    {%endif%}
-  </table>
-</bdoy>
-{% endblock %}
+<h1 style="color: rgb(19, 20, 19)">
+  Researchers under 40 and Researchers working on >=5 projects 
+    </h1>
+
+    
+        
+          <a class="nav-item nav-link" id="Researchers_under_40" href="/Researcher/Researchers_under_40">Researchers_under_40</a>
+    <a class="nav-item nav-link" id="Researchers_working_on" href="/Researcher/Researchers_working_on">Researchers_working_on</a>
+    
+    
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>

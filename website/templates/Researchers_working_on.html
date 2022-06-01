@@ -1,0 +1,29 @@
+extends "base.html" %} {% block title %}Research{% endblock %} {% block content
+    %}
+    <h3> Researchers working on >=5 projects  </h3>
+
+<body>
+<style>
+    table, th, td {
+      border:1px solid rgb(169, 10, 255);
+    }
+</style>
+<table style="width: 100%">
+    {%if rows%}
+    <tr>
+        <th>Researcher_name</th>
+        <th>Project number</th>
+    </tr>
+   <table style="width:100%">
+    {%if rows%}
+      {% for i in range(rows) %}
+      <tr>
+        {% for j in range(columns) %}
+        <td>{{ result6[i][j] }}</td>
+        {% endfor %}  
+      </tr>
+      {% endfor %}
+    {%endif%}
+  </table>
+
+{% endblock %}

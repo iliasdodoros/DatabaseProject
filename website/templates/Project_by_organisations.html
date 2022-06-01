@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% extends "base.html" %} {% block title %}Project{% endblock %} {% block content
+%}
+
+
+<h2>
+   Projects order by organisations
+</h2>
+
+<body>
+    
+    <style>
+        table,
+        th,
+        td {
+            border: 2px solid rgb(0, 0, 0);
+        }
+    </style>
+    <table style="width: 100%">
+        {%if rows%}
+        <tr>
+            <th>organisation_name</th>
+            <th>project_title</th>
+        </tr>
+        {% for i in range(rows) %}
+        <tr>
+            {% for j in range(columns) %}
+            <td>{{ result5[i][j] }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+        {%endif%}
+    </table>
+
+    </body2>
+
+    {%endblock%}
+
+    </html>
