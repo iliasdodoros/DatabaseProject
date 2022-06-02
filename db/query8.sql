@@ -1,4 +1,4 @@
-use elidek;
+
 select * from (
 (select r.last_name, r.first_name, count(*) as projects_working_on
 from Researcher r 

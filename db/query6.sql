@@ -1,4 +1,4 @@
-use elidek;
+
 create view active_projects as
 	select * from Project p 
 	where ((p.beginning < current_date())  and (p.ending > current_date()));	
