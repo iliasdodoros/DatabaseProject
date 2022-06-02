@@ -557,6 +557,16 @@ INSERT INTO elidek.Project (amount,title,beginning,ending,duration,summary,grade
  	 (594520,'Diskopothro','2020-06-01','2021-06-01',12,'consectetuer adipiscing elit proin interdum mauris non  ',10,'2019-12-01',3,2,1,2,1),
 	 (594520,'FabaFrapa','2020-07-01','2021-07-01',12,'consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,1,2,1), 
 	 (594520,'FapaKsapla','2020-08-01','2021-08-01',12,'elit proin interdum mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,1,2,1),
+	 (594520,'Perfume','2020-04-01','2023-04-01',36,'consectetuer elit proi mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,1,2,2), 
+	 (594520,'Music','2020-05-01','2022-05-01',24,'consectetuer adipiscing elit proin interdum sque ultrices ',10,'2019-12-01',3,2,1,2,2),
+ 	 (594520,'Football','2020-06-01','2023-06-01',36,'cing elit proin interdum mauris non  ',10,'2019-12-01',3,2,1,2,1),
+	 (594520,'Basketball','2020-07-01','2021-07-01',12,'consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,1,2,2), 
+	 (594520,'Tennis','2020-08-01','2022-08-01',24,'elit proin interdum m pellentesque ultrices ',10,'2019-12-01',3,2,1,2,2),
+	 (594520,'Hockey','2020-04-01','2023-04-01',36,'consectetuer elit proin interdum mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,1,2,2), 
+	 (594520,'Swimming','2020-05-01','2022-05-01',24,'consectetuer adipim mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,1,2,2),
+ 	 (594520,'Voleyball','2020-06-01','2021-06-01',12,'consectetuer adipiscing elit proin interdum mauris non  ',10,'2019-12-01',3,2,1,2,2),
+	 (594520,'Table tennis','2020-07-01','2023-07-01',36,'mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,1,2,2), 
+	 (594520,'Golf','2020-08-01','2021-08-01',12,'elit proin interdum mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,1,2,2);
 
 INSERT into Delivered
 	(`title`,`summary`,`delivered_id`,`project_id`) 
