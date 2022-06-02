@@ -545,8 +545,9 @@ INSERT INTO elidek.Project (amount,title,beginning,ending,duration,summary,grade
 	 (141068,'Wombat, common','2023-11-01','2027-11-01',48,'a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id',7,'2023-10-01',7,17,77,56,17),
 	 (780046,'Wombat, southern hairy-nosed','2023-12-01','2027-12-01',48,'sed justo pellentesque viverra pede ac diam',8,'2023-10-31',8,18,78,57,18),
 	 (813608,'XEROSTOM','2024-01-01','2028-01-01',48,'malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin',9,'2023-12-01',9,19,79,58,19),
-	 (391820,'Singing','2022-01-01','2024-01-01',24,'consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien',3,'2021-12-01',1,1,44,1,14);
-	
+	 (391820,'Singing','2022-01-01','2024-01-01',24,'consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien',3,'2021-12-01',1,1,44,1,14),
+	 (591820,'Adding','2020-10-01','2023-10-01',36,'consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien',9,'2019-12-01',3,2,31,2,1);
+
 INSERT into Delivered
 	(`title`,`summary`,`delivered_id`,`project_id`) 
 VALUES
@@ -776,7 +777,9 @@ VALUES
 	('19','28'),
 	('20','29'),
 	('21','30'),
-	('80','74');	
+	('80','74'),
+	('81','1'),
+	('81','91');	
 
 INSERT into Project_Research_Field 
 	(`project_id`,`name`) 
@@ -804,6 +807,7 @@ VALUES
 	('5','Astrology'),
 	('6','Mathematics'),
 	('7','History');
+
 -- -------------------------------------------
 -- VIEWS -------------------------------------
 -- -------------------------------------------
