@@ -17,8 +17,13 @@
 
   <table style="width:100%">
     {%if rows%}
-    {% for i in range(rows) %}
     <tr>
+      <th>Executive_name</th>
+      <th>Company number</th>
+      <th>Funding($) </th>
+    </tr>
+    {% for i in range(rows) %}
+   
       {% for j in range(columns) %}
       <td>{{ result1[i][j] }}</td>
       {% endfor %}
