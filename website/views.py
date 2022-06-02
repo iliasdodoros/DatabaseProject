@@ -154,8 +154,8 @@ def Project():
     return render_template("Project.html",  boolean=True)
 
 
-@views.route('/Project/Project_by_researchers')
-def Project_by_researchers():
+@views.route('/Project/Projects_per_researcher')
+def Projects_per_researcher():
     mycursor.execute('''create view projects_per_researcher as
                          (select concat( r.last_name," ", r.first_name ) as researcher_name, p.title as project_title 
                          from Researcher r 
@@ -170,11 +170,11 @@ def Project_by_researchers():
     result4 = mycursor.fetchall()
     listed4 = list(result4)
     mycursor.execute('drop view projects_per_researcher;')
-    return render_template("Project_by_researchers.html", result4=listed4, rows=len(result4), columns=len(result4[0]), boolean=True)
+    return render_template("Projects_per_researcher.html", result4=listed4, rows=len(result4), columns=len(result4[0]), boolean=True)
 
 
-@views.route('/Project/Project_by_organisations')
-def Project_by_organisations():
+@views.route('/Project/Projects_per_organisation')
+def Projects_per_organisation():
     mycursor.execute('''create view projects_per_organisation as 
                          select o.name as organisation_name, p.title as project_title 
                          from Organisation o 
@@ -184,11 +184,11 @@ def Project_by_organisations():
     result5 = mycursor.fetchall()
     listed5 = list(result5)
     mycursor.execute('drop view projects_per_organisation;')
-    return render_template("Project_by_organisations.html", result5=listed5, rows=len(result5), columns=len(result5[0]), boolean=True)
+    return render_template("Projects_per_organisation.html", result5=listed5, rows=len(result5), columns=len(result5[0]), boolean=True)
 
 
-@views.route('/Project/Top_3_Duos')
-def Top_3_Duos():
+@views.route('/Project/Top_3__Research_Field_Duos')
+def Top_3__Research_Field_Duos():
     
     mycursor.execute('''create view project_and_rf as
                         select p.title, p.project_id, prf.name  
@@ -206,4 +206,4 @@ def Top_3_Duos():
     result7 = mycursor.fetchall()
     listed7 = list(result7)
     mycursor.execute('drop view project_and_rf;')
-    return render_template("Top_3_Duos.html", result7=listed7, rows=len(result7), columns=len(result7[0]), boolean=True)
+    return render_template("Top_3__Research_Field_Duos.html", result7=listed7, rows=len(result7), columns=len(result7[0]), boolean=True)

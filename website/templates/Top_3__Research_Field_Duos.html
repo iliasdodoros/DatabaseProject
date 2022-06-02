@@ -4,17 +4,17 @@
 
 
 <h1>
-    Top 3 Duos
+    Top 3 Research Field Duos
 </h1>
 <br>
 
 <body>
     <br>
     <ul class="nav nav-tabs">
-        <a class="nav-link" id="Project_by_researchers" href="/Project/Project_by_researchers">Project by esearchers</a>
-        <a class="nav-link active" id="Project_by_organisations" href="/Project/Project_by_organisations">Project by
+        <a class="nav-link" id="Project_per_researchers" href="/Project/Project_per_researchers">Project per researchers</a>
+        <a class="nav-link active" id="Project_per_organisations" href="/Project/Project_per_organisations">Project per
             organisations</a>
-        <a class="nav-link" id="Project_by_researchers" href="/Project/Top_3_Duos">Top 3 Duos</a>
+        <a class="nav-link" id="Project_per_researchers" href="/Project/Top_3_Duos">Top 3 Duos</a>
     </ul>
     <br>
 
@@ -29,8 +29,10 @@
     <table style="width: 100%">
         {%if rows%}
         <tr>
-            <th>researcher_name</th>
-            <th>project_title</th>
+            <th>project_name</th>
+            <th>project_id</th>
+            <th>field_duos</th>
+            <th>Appereance_number</th>
         </tr>
         {% for i in range(rows) %}
         <tr>

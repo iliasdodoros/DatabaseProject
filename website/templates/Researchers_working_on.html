@@ -1,4 +1,4 @@
-extends "base.html" %} {% block title %}Research{% endblock %} {% block content
+{% extends "base.html" %} {% block title %}Research{% endblock %} {% block content
 %}
 <h1>
   Researchers working on >=5 projects
@@ -38,5 +38,6 @@ extends "base.html" %} {% block title %}Research{% endblock %} {% block content
     {% endfor %}
     {%endif%}
   </table>
+  {%endif%} 
 </body>
 {% endblock %}

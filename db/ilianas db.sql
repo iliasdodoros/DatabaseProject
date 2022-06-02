@@ -467,7 +467,7 @@ VALUES
 
 INSERT INTO elidek.Project (amount,title,beginning,ending,duration,summary,grade,date_of_grading,stelehos_id,programm_id,supervisor_id,grader_id,organisation_id) VALUES
 	 (391820,'African fish eagle','2000-01-01','2001-02-01',13,'consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien',3,'1999-12-01',1,1,1,80,1),
-	 (143448,'African ground squirrel (unidentified)','2000-02-01','2001-04-01',14,'tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse',4,'2000-01-01',2,2,2,81,2),
+	 (143448,'African ground squirrel ','2000-02-01','2001-04-01',14,'tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse',4,'2000-01-01',2,2,2,81,2),
 	 (216332,'American badger','2000-03-01','2001-06-01',15,'nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere',5,'2000-01-30',3,3,3,82,3),
 	 (856065,'Antelope ground squirrel','2000-04-01','2001-08-01',16,'varius ut blandit non interdum in ante vestibulum ante ipsum primis in',6,'2000-03-01',4,4,4,83,4),
 	 (682063,'Arthritazin Pain Relieving','2000-05-01','2001-10-01',17,'laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus',7,'2000-03-31',5,5,5,84,5),
@@ -546,7 +546,17 @@ INSERT INTO elidek.Project (amount,title,beginning,ending,duration,summary,grade
 	 (780046,'Wombat, southern hairy-nosed','2023-12-01','2027-12-01',48,'sed justo pellentesque viverra pede ac diam',8,'2023-10-31',8,18,78,57,18),
 	 (813608,'XEROSTOM','2024-01-01','2028-01-01',48,'malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin',9,'2023-12-01',9,19,79,58,19),
 	 (391820,'Singing','2022-01-01','2024-01-01',24,'consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien',3,'2021-12-01',1,1,44,1,14),
-	 (591820,'Adding','2020-10-01','2023-10-01',36,'consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien',9,'2019-12-01',3,2,31,2,1);
+	 (591820,'Adding','2020-10-01','2023-10-01',36,'consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien',9,'2019-12-01',3,2,31,2,1),
+	 (594520,'Mpamies','2020-11-01','2021-11-01',12,'consectetuer adipiscing elit  pellentesque ultrices ',10,'2019-12-01',3,2,1,2,1),
+	 (594520,'Arakas','2020-12-01','2022-12-01',24,'consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,1,2,1),
+ 	 (594520,'Makaronia','2020-01-01','2021-01-01',12,'consectetuer a elit proin interdum mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,1,2,1),
+	 (594520,'Ryzaleyro','2020-02-01','2023-02-01',36,'consectetuer adipiscing elit  non ligula pellentesque ultrices ',10,'2019-12-01',3,2,1,2,1),
+	 (594520,'Pop Corn','2020-03-01','2023-03-01',36,'consectetuer elit proin interdum mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,1,2,1), 
+	 (594520,'Tzatziki','2020-04-01','2024-04-01',48,'consectetuer elit proin interdum mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,1,2,1), 
+	 (594520,'Khrophgio','2020-05-01','2022-05-01',24,'consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,1,2,1),
+ 	 (594520,'Diskopothro','2020-06-01','2021-06-01',12,'consectetuer adipiscing elit proin interdum mauris non  ',10,'2019-12-01',3,2,1,2,1),
+	 (594520,'FabaFrapa','2020-07-01','2021-07-01',12,'consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,1,2,1), 
+	 (594520,'FapaKsapla','2020-08-01','2021-08-01',12,'elit proin interdum mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,1,2,1),
 
 INSERT into Delivered
 	(`title`,`summary`,`delivered_id`,`project_id`) 
@@ -777,6 +787,17 @@ VALUES
 	('19','28'),
 	('20','29'),
 	('21','30'),
+	('82','1'),
+	('83','1'),
+	('84','1'),
+	('85','1'),
+	('86','1'),
+	('87','1'),
+	('88','1'),
+	('89','1'),
+	('90','1'),
+	('91','1'),
+	
 	('80','74'),
 	('81','1'),
 	('81','91');	
