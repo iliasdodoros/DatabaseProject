@@ -547,16 +547,26 @@ INSERT INTO elidek.Project (amount,title,beginning,ending,duration,summary,grade
 	 (813608,'XEROSTOM','2024-01-01','2028-01-01',48,'malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin',9,'2023-12-01',9,19,79,58,19),
 	 (391820,'Singing','2022-01-01','2024-01-01',24,'consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien',3,'2021-12-01',1,1,44,1,14),
 	 (591820,'Adding','2020-10-01','2023-10-01',36,'consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien',9,'2019-12-01',3,2,31,2,1),
-	 (594520,'Mpamies','2020-11-01','2021-11-01',12,'consectetuer adipiscing elit  pellentesque ultrices ',10,'2019-12-01',3,2,1,2,1),
-	 (594520,'Arakas','2020-12-01','2022-12-01',24,'consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,1,2,1),
- 	 (594520,'Makaronia','2020-01-01','2021-01-01',12,'consectetuer a elit proin interdum mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,1,2,1),
-	 (594520,'Ryzaleyro','2020-02-01','2023-02-01',36,'consectetuer adipiscing elit  non ligula pellentesque ultrices ',10,'2019-12-01',3,2,1,2,1),
-	 (594520,'Pop Corn','2020-03-01','2023-03-01',36,'consectetuer elit proin interdum mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,1,2,1), 
-	 (594520,'Tzatziki','2020-04-01','2024-04-01',48,'consectetuer elit proin interdum mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,1,2,1), 
-	 (594520,'Khrophgio','2020-05-01','2022-05-01',24,'consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,1,2,1),
- 	 (594520,'Diskopothro','2020-06-01','2021-06-01',12,'consectetuer adipiscing elit proin interdum mauris non  ',10,'2019-12-01',3,2,1,2,1),
-	 (594520,'FabaFrapa','2020-07-01','2021-07-01',12,'consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,1,2,1), 
-	 (594520,'FapaKsapla','2020-08-01','2021-08-01',12,'elit proin interdum mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,1,2,1),
+	 (594520,'Mpamies','2020-11-01','2021-11-01',12,'consectetuer adipiscing elit  pellentesque ultrices ',10,'2019-12-01',3,2,31,2,1),
+	 (594520,'Arakas','2020-12-01','2022-12-01',24,'consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,31,2,1),
+ 	 (594520,'Makaronia','2020-01-01','2021-01-01',12,'consectetuer a elit proin interdum mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,31,2,1),
+	 (594520,'Ryzaleyro','2020-02-01','2023-02-01',36,'consectetuer adipiscing elit  non ligula pellentesque ultrices ',10,'2019-12-01',3,2,31,2,1),
+	 (594520,'Pop Corn','2020-03-01','2023-03-01',36,'consectetuer elit proin interdum mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,31,2,1), 
+	 (594520,'Tzatziki','2020-04-01','2024-04-01',48,'consectetuer elit proin interdum mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,31,2,1), 
+	 (594520,'Khrophgio','2020-05-01','2022-05-01',24,'consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,31,2,1),
+ 	 (594520,'Diskopothro','2020-06-01','2021-06-01',12,'consectetuer adipiscing elit proin interdum mauris non  ',10,'2019-12-01',3,2,31,2,1),
+	 (594520,'FabaFrapa','2020-07-01','2021-07-01',12,'consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,31,2,1), 
+	 (594520,'FapaKsapla','2020-08-01','2021-08-01',12,'elit proin interdum mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,31,2,1),
+	 (194520,'Votka Portokali','2021-08-01','2022-08-01',12,'elit proin interdum mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,2,8,2),
+	 (294520,'DataBases','2021-08-01','2023-08-01',24,'elit proin interdum mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,2,3,2),
+	 (394520,'Crete','2021-08-01','2023-08-01',24,'elit proin interdum mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,2,6,2),
+	 (494520,'Patatakia','2021-08-01','2022-08-01',12,'elit proin interdum mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,2,5,2),
+	 (504520,'Apple','2021-08-01','2022-08-01',12,'elit proin interdum mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,2,4,2),
+	 (204520,'Elyros','2021-08-01','2023-08-01',24,'elit proin interdum mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,2,8,2),
+	 (590520,'BlueStar','2021-08-01','2022-08-01',12,'elit proin interdum mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,2,7,2),
+	 (530520,'Chaniaaa','2021-08-01','2023-08-01',24,'elit proin interdum mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,2,7,2),
+	 (590020,'Club','2021-08-01','2024-08-01',36,'elit proin interdum mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,2,7,2),
+	 (500520,'Arma','2021-08-01','2024-08-01',36,'elit proin interdum mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,2,7,2),
 	 (594520,'Perfume','2020-04-01','2023-04-01',36,'consectetuer elit proi mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,2,3,2), 
 	 (594520,'Music','2020-05-01','2022-05-01',24,'consectetuer adipiscing elit proin interdum sque ultrices ',10,'2019-12-01',3,2,2,3,2),
  	 (594520,'Football','2020-06-01','2023-06-01',36,'cing elit proin interdum mauris non  ',10,'2019-12-01',3,2,2,3,2),
@@ -568,6 +578,8 @@ INSERT INTO elidek.Project (amount,title,beginning,ending,duration,summary,grade
 	 (594520,'Table tennis','2020-07-01','2023-07-01',36,'mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,2,3,2), 
 	 (594520,'Golf','2020-08-01','2021-08-01',12,'elit proin interdum mauris non ligula pellentesque ultrices ',10,'2019-12-01',3,2,2,3,2);
 
+ 
+	 
 INSERT into Delivered
 	(`title`,`summary`,`delivered_id`,`project_id`) 
 VALUES
