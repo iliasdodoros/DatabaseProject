@@ -1,0 +1,15 @@
+select name from Programm;
+-------------------------------------------------------------
+select title_of_project, name_of_researcher  from (
+(select concat(r.last_name," ", r.first_name) name_of_researcher, p.title as title_of_project, p.duration, p.stelehos_id  
+from researcher r 
+inner join works_in_project wip on r.researcher_id = wip.researcher_id 
+inner join project p on wip.project_id = p.project_id
+order by title_of_project )
+union 
+(select concat(r.last_name," ", r.first_name) name_of_researcher, p.title as title_of_project, p.duration, p.stelehos_id  
+from researcher r 
+inner join project p on r.researcher_id = p.supervisor_id 
+order by title_of_project)) A
+where A.duration = 24
+order by title_of_project ;
