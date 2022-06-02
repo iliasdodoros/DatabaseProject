@@ -1,7 +1,8 @@
+use elidek;
 create view project_and_rf as
 select p.title, p.project_id, prf.name  
-from project p 
-inner join project_research_field prf on p.project_id = prf.project_id 
+from Project p 
+inner join Project_Research_Field prf on p.project_id = prf.project_id 
 order by p.project_id ;
 
 select title, project_id, rf_duo, count(*) as counter from (
@@ -13,3 +14,4 @@ group by rf_duo
 order by counter desc
 limit 3;
 
+drop view project_and_rf;
