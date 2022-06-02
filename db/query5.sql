@@ -1,4 +1,4 @@
-use elidek;
+
 create view project_and_rf as
 select p.title, p.project_id, prf.name  
 from Project p 
