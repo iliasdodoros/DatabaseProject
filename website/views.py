@@ -209,29 +209,26 @@ def Top_3__Research_Field_Duos():
     return render_template("Top_3__Research_Field_Duos.html", result7=listed7, rows=len(result7), columns=len(result7[0]), boolean=True)
 
 
-@views.route('/Edit_Database', methods=['GET', 'POST'])
-def crud():
-    if request.method == 'POST':
-        mycursor.execute('show tables')
-        tables = mycursor.fetchall()
+@views.route('/Project/Edit_Project', methods=['GET', 'POST'])
+def Edit_Project():
+    
+    mycursor.execute("""SELECT DISTINCT title,project_id from Project""")
+    projects = mycursor.fetchall()
 
-        if "crud" in request.form:
-            action = request.form['crud']
-            return render_template("Edit_Database.html", tables=tables, boolean=True)
+    if request.method=='POST':
+        if 'project' in request.form:
+            project=request.form['project']
+            mycursor.execute(f'select * from Project where title ="{project}"')
+            data=mycursor.fetchall()
+            return render_template("Edit_Project.html", projects=projects, data=data[0],columns=len(data[0]),boolean=True)
+        if 'title' in request.form:
+            title=request.form['title']
+            projectid=request.form['project']
+            mycursor.execute(f'update Project set title="{title}" where project_id="{projectid}"')
+            ourdb.commit()
+            return render_template("Edit_Project.html", projects=projects,boolean=True)
+        return render_template("Edit_Project.html", projects=projects, boolean=True)
+    return render_template("Edit_Project.html", projects=projects, boolean=True)
+     
 
-        if "table" in request.form:
-            table = request.form['table']
-            mycursor2.execute(f'select * from {table}')
-            tuples = mycursor2.fetchall()
-            if "tuple" in request.form:
-                    tuple = request.form['tuple']
-                    mycursor2.execute(f'delete from {table} where  organisation_id ="{tuple}" ')
-                    return render_template("Edit_Database.html", boolean=True)
-            return render_template("Edit_Database.html", tables=tables, table=table, tuples=tuples, boolean=True)
-
-        
-
-        return render_template("Edit_Database.html", boolean=True)
-
-    else:
-        return render_template("Edit_Database.html", boolean=True)
+   

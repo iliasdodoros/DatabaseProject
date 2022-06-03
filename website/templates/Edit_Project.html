@@ -1,0 +1,83 @@
+{% extends "base.html" %} {% block title %}Project{% endblock %} {% block content%}
+
+<br>
+<h1>
+    Projects per researcher
+</h1>
+<br>
+
+<body>
+    <br>
+    <ul class="nav nav-tabs">
+        <a class="nav-link " id="Projects_per_researcher" href="/Project/Projects_per_researcher">Projects per
+            researcher</a>
+        <a class="nav-link" id="Projects_per_organisation" href="/Project/Projects_per_organisation">Projects per
+            organisation</a>
+        <a class="nav-link" id="Top_3__Research_Field_Duos" href="/Project/Top_3__Research_Field_Duos">Top 3 Research
+            Field Duos</a>
+        <a class="nav-link active" id="Edit_Project" href="/Project/Edit_Project">Edit Projects</a>
+    </ul>
+    <br>
+
+    <br>
+
+    <form method="POST" id="project">
+        <label for="project">Choose a Table</label>
+        <select name="project" id="project">
+            <option value=""></option>
+            {%for project in projects %}
+            <option value="{{project[0]}}">{{project[0]}}</option>
+            {%endfor%}
+        </select>
+        <br><br>
+        <input type="submit" value="Submit">
+
+        <br>
+    </form>
+    <br><br>
+    {%if data%}
+    <div id="project-form-container">
+        <h3>Edit Project</h3>
+        <form class="form" method='POST' action="{{ url_for('views.Edit_Project') }}">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputtitle">Title</label>
+                    <input type="text" class="form-control" name="title" value="{{data[1] }}"
+                        placeholder="{{data[1] }}">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="amount">Funding</label>
+                    <input type="text" class="form-control" name="amount" value="{{data[0]}}" placeholder="{{data[0]}}">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="executive">Executive ID</label>
+                    <input type="text" class="form-control" value="{{data[9]}}" name="executive"
+                        placeholder="{{data[9]}}">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="summary">Summary</label>
+                    <input type="text" class="form-control" value="{{data[5]}}" name="summary"
+                        placeholder="{{data[5]}}">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-default btn-light my-4" onclick="window.location.href='/Project/Edit_Project'">Save</button>
+        </form>
+
+        <button type="button" class="btn btn-secondary btn-light my-4"
+            onclick="window.location.href='/Project/Edit_Project'">Back</button>
+
+        {%endif%}
+
+    </div>
+
+</body>
+
+
+{%endblock%}
