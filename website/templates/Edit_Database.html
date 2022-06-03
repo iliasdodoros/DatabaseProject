@@ -1,0 +1,55 @@
+{% extends "base.html" %} {% block title %}Edit_Database{% endblock %} {% block content%}
+
+<h2>Here you can edit the Database</h2>
+<block>
+
+    <form method="POST" id="crud">
+        <label for="crud">Choose an Action</label>
+        <select name="crud" id="crud">
+            <option value="nothing">--</option>
+            <option value="insert ">Insert new Data</option>
+            <option value="select">View Data</option>
+            <option value="update">Update Data</option>
+            <option value="delete">Delete Data</option>
+        </select>
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+
+
+    <br>
+    {%if tables%}
+
+    <form method="POST" id="table">
+        <label for="table">Choose a Table</label>
+        <select name="table" id="table">
+            {%for table in tables %}
+            <option value="{{table[0]}}">{{table[0]}}</option>
+            {%endfor%}
+        </select>
+        <br><br>
+        <input type="submit" value="Submit">
+
+        <br>
+
+        {%if table%}
+
+
+        <label for="tuple">Choose an entity to delete</label>
+        <select name="tuple" id="tuple">
+            {%for tuple in tuples %}
+            <option value="{{tuple[0]}}">{{tuple[0]}}</option>
+            {%endfor%}
+        </select>
+        <br><br>
+        <!-- <input type="submit" value="Submit"> -->
+
+
+        {%endif%}
+    </form>
+    {%endif%}
+</block>
+
+
+{%endblock%}

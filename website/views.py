@@ -189,7 +189,7 @@ def Projects_per_organisation():
 
 @views.route('/Project/Top_3__Research_Field_Duos')
 def Top_3__Research_Field_Duos():
-    
+
     mycursor.execute('''create view project_and_rf as
                         select p.title, p.project_id, prf.name  
                         from Project p 
@@ -207,3 +207,31 @@ def Top_3__Research_Field_Duos():
     listed7 = list(result7)
     mycursor.execute('drop view project_and_rf;')
     return render_template("Top_3__Research_Field_Duos.html", result7=listed7, rows=len(result7), columns=len(result7[0]), boolean=True)
+
+
+@views.route('/Edit_Database', methods=['GET', 'POST'])
+def crud():
+    if request.method == 'POST':
+        mycursor.execute('show tables')
+        tables = mycursor.fetchall()
+
+        if "crud" in request.form:
+            action = request.form['crud']
+            return render_template("Edit_Database.html", tables=tables, boolean=True)
+
+        if "table" in request.form:
+            table = request.form['table']
+            mycursor2.execute(f'select * from {table}')
+            tuples = mycursor2.fetchall()
+            if "tuple" in request.form:
+                    tuple = request.form['tuple']
+                    mycursor2.execute(f'delete from {table} where  organisation_id ="{tuple}" ')
+                    return render_template("Edit_Database.html", boolean=True)
+            return render_template("Edit_Database.html", tables=tables, table=table, tuples=tuples, boolean=True)
+
+        
+
+        return render_template("Edit_Database.html", boolean=True)
+
+    else:
+        return render_template("Edit_Database.html", boolean=True)
