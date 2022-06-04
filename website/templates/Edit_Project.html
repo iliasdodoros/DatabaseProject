@@ -2,7 +2,7 @@
 
 <br>
 <h1>
-    Projects per researcher
+    Edit Project
 </h1>
 <br>
 
@@ -23,9 +23,8 @@
     <br>
 
     <form class="form"  method='POST'>
-        <label for="project">Choose a Table</label>
+        <label for="project">Choose a Project</label>
         <select name="project" id="project">
-            <!-- <option value=""></option> -->
             {%for project in projects %}
             <option value="{{project.title}}">{{project.title}}</option>
             {%endfor%}
@@ -46,39 +45,39 @@
                 <div class="form-group col-md-6">
                     <label for="inputtitle">Title</label>
                     <input type="text" class="form-control" name="title" value="{{ data[0].title }}"
-                        placeholder="title" >
+                        placeholder="Title" >
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="amount">Funding</label>
-                    <input type="text" class="form-control" name="amount" value="{{data[0].amount}}" placeholder="{{data[0].amount}}">
+                    <input type="text" class="form-control" name="amount" value="{{data[0].amount}}" placeholder="Funding">
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="executive">Executive ID</label>
-                    <input type="text" class="form-control" value="{{data[0].stelehos_id}}" name="executive"
-                        placeholder="{{data[0].stelehos_id}}">
+                    <label for="stelehos_id">Executive ID</label>
+                    <input type="text" class="form-control" value="{{data[0].stelehos_id}}" name="stelehos_id"
+                        placeholder="Executive ID">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="summary">Summary</label>
                     <input type="text" class="form-control" value="{{data[0].summary}}" name="summary"
-                        placeholder="{{data[0].summary}}">
+                        placeholder="Summary">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="project_id">Porject ID</label>
+                    <label for="project_id">Project ID</label>
                     <input type="text" class="form-control" value="{{data[0].project_id}}" name="project_id"
                         placeholder="{{data[0].project_id}}" readonly>
                 </div>
             </div>
             <button type="submit" class="btn btn-default btn-light my-4"
-                onclick="window.location.href='/data/Edit_data'">Save</button>
+                onclick="window.location.href='/Project/Edit_Project'">Save</button>
         </form>
 
 

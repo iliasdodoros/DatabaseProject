@@ -1,0 +1,79 @@
+{% extends "base.html" %} {% block title %}Researcher{% endblock %} {% block content%}
+
+<br>
+<h1>
+    Edit Researcher
+</h1>
+<br>
+
+<body>
+
+    <br>
+    <ul class="nav nav-tabs">
+        <a class="nav-link" id="Researchers_under_40" href="/Researcher/Researchers_under_40">Researchers under 40</a>
+        <a class="nav-link" id="Researchers_working_on" href="/Researcher/Researchers_working_on">Researchers working
+            on</a>
+        <a class="nav-link active" id="Edit_Researchers" href="/Researcher/Edit_Researcher"> Edit Researchers</a>
+        <a class="nav-link" id="Add_Researchers" href="/Researcher/Add_Researcher"> Add Researchers</a>
+    </ul>
+
+    <br>
+
+    <form class="form" method='POST'>
+        <label for="researcher">Choose a Researcher</label>
+        <select name="researcher" id="researcher">
+            {%for researcher in researchers %}
+            <option value="{{researcher.full_name}}">{{researcher.full_name}}</option>
+            {%endfor%}
+        </select>
+        <br><br>
+        <input type="submit" id="researcher" value="Submit">
+
+        <br>
+    </form>
+    <br><br>
+
+    {%if data%}
+
+    <div id="data-form-container">
+        <h3>Edit data</h3>
+        <form class="form" method='POST'>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="first_name">First Name</label>
+                    <input type="text" class="form-control" name="first_name" value="{{ data[0].first_name }}"
+                        placeholder="First Name">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="last_name">Last Name</label>
+                    <input type="text" class="form-control" name="last_name" value="{{data[0].last_name}}"
+                        placeholder="Last Name">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="date_of_birth">Date of Birth</label>
+                    <input type="date" class="form-control" value="{{data[0].date_of_birth}}" name="date_of_birth"
+                        placeholder="Date of Birth">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="researcher_id">Researcher ID</label>
+                    <input type="text" class="form-control" value="{{data[0].researcher_id}}" name="researcher_id"
+                        placeholder="Researcher ID" readonly>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-default btn-light my-4"
+                onclick="window.location.href='/Researcher/Edit_Researcher'">Save</button>
+        </form>
+
+
+
+
+    </div>
+    {%endif%}
+    {%endblock%}
