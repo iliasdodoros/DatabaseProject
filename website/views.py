@@ -1,14 +1,18 @@
 from dataclasses import field, fields
-from datetime import date
-from flask import Blueprint, render_template, request
+from datetime import date, datetime
+
 import mysql.connector
+from dateutil import relativedelta
+from flask import Blueprint, render_template, request, session
+from requests import session
 
 ourdb = mysql.connector.connect(
     host="localhost", user="root", password="", database="elidek")
 
 
 mycursor = ourdb.cursor()
-mycursor2 = ourdb.cursor()
+mycursor2 = ourdb.cursor(named_tuple=True)
+mycursor3 = ourdb.cursor(named_tuple=True)
 
 views = Blueprint('views', __name__)
 
@@ -211,24 +215,47 @@ def Top_3__Research_Field_Duos():
 
 @views.route('/Project/Edit_Project', methods=['GET', 'POST'])
 def Edit_Project():
-    
-    mycursor.execute("""SELECT DISTINCT title,project_id from Project""")
-    projects = mycursor.fetchall()
 
-    if request.method=='POST':
+    mycursor3.execute("""SELECT DISTINCT title from Project""")
+    projects = mycursor3.fetchall()
+    if request.method == 'POST':
         if 'project' in request.form:
-            project=request.form['project']
-            mycursor.execute(f'select * from Project where title ="{project}"')
-            data=mycursor.fetchall()
-            return render_template("Edit_Project.html", projects=projects, data=data[0],columns=len(data[0]),boolean=True)
-        if 'title' in request.form:
-            title=request.form['title']
-            projectid=request.form['project']
-            mycursor.execute(f'update Project set title="{title}" where project_id="{projectid}"')
+            project = request.form["project"]
+            mycursor2.execute(
+                f'select project_id from Project where title="{project}"')
+            project_id = mycursor2.fetchall()
+            mycursor3.execute(
+                f'select title,amount,stelehos_id,summary,project_id from Project where project_id="{project_id[0][0]}"')
+            data = mycursor3.fetchall()
+            return render_template("Edit_Project.html", data=data, projectid=project_id, projects=projects, boolean=True)
+        if 'project_id' in request.form:
+            project_idd = request.form['project_id']
+            title = request.form['title']
+            mycursor3.execute(
+                f'update Project set title ="{title}" where project_id="{project_idd}"')
             ourdb.commit()
-            return render_template("Edit_Project.html", projects=projects,boolean=True)
-        return render_template("Edit_Project.html", projects=projects, boolean=True)
-    return render_template("Edit_Project.html", projects=projects, boolean=True)
-     
+            return render_template("Edit_Project.html", projects=projects, boolean=True)
 
-   
+    return render_template("Edit_Project.html", projects=projects, boolean=True)
+
+
+@views.route('/Project/Add_Project', methods=['GET', 'POST'])
+def Add_Project():
+    if request.method == 'POST':
+        amount = request.form['amount']
+        title = request.form['title']
+        beginning = request.form['beginning']
+        ending = request.form['ending']
+        duration = request.form['duration']
+        summary = request.form['summary']
+        grade = request.form['grade']
+        date_of_grading = request.form['date_of_grading']
+        stelehos_id = request.form['stelehos_id']
+        programm_id = request.form['programm_id']
+        supervisor_id = request.form['supervisor_id']
+        grader_id = request.form['grader_id']
+        organisation_id = request.form['organisation_id']
+        mycursor3.execute(f'''INSERT INTO elidek.Project (amount,title,beginning,ending,duration,summary,grade,date_of_grading,stelehos_id,programm_id,supervisor_id,grader_id,organisation_id) 
+                              VALUES ("{amount}","{title}","{beginning}","{ending}","{duration}","{summary}","{grade}","{date_of_grading}","{stelehos_id}","{programm_id}","{supervisor_id}","{grader_id}","{organisation_id}"''')
+
+    return render_template("Add_Project.html", boolean=True)
