@@ -130,6 +130,8 @@ alter table project add constraint check(date_of_grading < beginning);
 
 alter table Project add constraint check(grade between 0 and 10);
 
+alter table Project add constraint check(duration between 12 and 48); 
+
 CREATE TABLE Delivered
 (
   title VARCHAR(45) NOT NULL,
@@ -158,14 +160,6 @@ CREATE TABLE Works_in_Project
   CONSTRAINT `fk_works_in_project_project` FOREIGN KEY (project_id) REFERENCES Project(project_id) ON DELETE RESTRICT ON UPDATE cascade,
   CONSTRAINT `fk_works_in_project_researcher` FOREIGN KEY (researcher_id) REFERENCES Researcher(researcher_id) ON DELETE RESTRICT ON UPDATE cascade
 );
-
--- alter table Works_in_Project add constraint check(
--- not exists (select * from (
--- select p.project_id, p.supervisor_id , wip.researcher_id 
--- from project p
--- inner join works_in_project wip on p.project_id = wip.project_id 
--- where p.supervisor_id = wip.researcher_id 
--- order by project_id) A));
 
 INSERT INTO Programm
 	(`Name`,`Address`,`Programm_id`) 
