@@ -117,11 +117,9 @@ def Stelehos():
 
 @views.route('/Programm')
 def Researcher():
-    found = mycursor.execute('SELECT * FROM Stelehos')
-    researchers = mycursor.fetchall()
-    vlaka = mycursor.execute('SELECT * FROM Research_Field')
-    fields = mycursor.fetchall()
-    return render_template("Programm.html", researchers=researchers, fields=fields)
+    mycursor.execute('select name from Programm')
+    programms = mycursor.fetchall()
+    return render_template("Programm.html", programms=programms)
 
 
 @views.route('/Research_Field', methods=['GET', 'POST'])
@@ -231,10 +229,11 @@ def Edit_Project():
         if 'project_id' in request.form:
             project_idd = request.form['project_id']
             title = request.form['title']
-            amount =request.form['amount']
-            stelehos_id= request.form['stelehos_id']
-            summary=   request.form['summary']          
-            mycursor3.execute(f'update Project set title ="{title}",amount="{amount}",stelehos_id="{stelehos_id}",summary="{summary}" where project_id="{project_idd}"')
+            amount = request.form['amount']
+            stelehos_id = request.form['stelehos_id']
+            summary = request.form['summary']
+            mycursor3.execute(
+                f'update Project set title ="{title}",amount="{amount}",stelehos_id="{stelehos_id}",summary="{summary}" where project_id="{project_idd}"')
             ourdb.commit()
             return render_template("Edit_Project.html", projects=projects, boolean=True)
 
@@ -252,7 +251,7 @@ def Add_Project():
         date1 = datetime.strptime(beginning, '%Y-%M-%d')
         date2 = datetime.strptime(ending, '%Y-%M-%d')
         delta = relativedelta.relativedelta(date2, date1)
-        duration=delta.months + (12*delta.years)
+        duration = delta.months + (12*delta.years)
         summary = request.form['summary']
         grade = request.form['grade']
         date_of_grading = request.form['date_of_grading']
@@ -261,23 +260,69 @@ def Add_Project():
         supervisor_id = request.form['supervisor_id']
         grader_id = request.form['grader_id']
         organisation_id = request.form['organisation_id']
-        mycursor3.execute(f'''insert into Project (amount,title,beginning,ending,duration,summary,grade,date_of_grading,stelehos_id,programm_id,supervisor_id,grader_id,organisation_id) values ("{amount}","{title}","{beginning}","{ending}","{duration}","{summary}","{grade}","{date_of_grading}","{stelehos_id}","{programm_id}","{supervisor_id}","{grader_id}","{organisation_id}") ''')
+        mycursor3.execute(
+            f'''insert into Project (amount,title,beginning,ending,duration,summary,grade,date_of_grading,stelehos_id,programm_id,supervisor_id,grader_id,organisation_id) values ("{amount}","{title}","{beginning}","{ending}","{duration}","{summary}","{grade}","{date_of_grading}","{stelehos_id}","{programm_id}","{supervisor_id}","{grader_id}","{organisation_id}") ''')
         ourdb.commit()
     return render_template("Add_Project.html", boolean=True)
+
+
+@views.route('/Project/Projectsfilters', methods=['GET', 'POST'])
+def Projectsfilters():
+    mycursor.execute("select name from Stelehos")
+    stelehoi = mycursor.fetchall()
+    if request.method == 'POST':
+        if 'date' in request.form:
+            date1='2099-01-01'
+            date2='1900-01-01'
+            stelehos='%'
+            duration='%'
+            if not request.form['date']=='':
+                date1 = request.form["date"]
+                date2 = request.form["date"]
+            if not request.form['stelehos']=='-':
+                stelehos = request.form["stelehos"]
+            if not request.form['duration']=='-':
+                duration = request.form["duration"]
+            mycursor2.execute(f'''  select p.title as title_of_project                                                                                  
+                                    from Project p 
+                                    inner join Stelehos s on p.stelehos_id = s.stelehos_id 
+                                    where s.name like "{stelehos}" and p.duration like "{duration}" and ((p.beginning < "{date1}")  and (p.ending > "{date2}"))''')
+            data = mycursor2.fetchall()
+            return render_template("Projectsfilters.html", stelehoi=stelehoi, data=data, boolean=True)
+        if 'project' in request.form:
+            project=request.form['project']
+            mycursor3.execute(f'''  select name_of_researcher from (
+                                    (select concat(r.last_name," ", r.first_name) as name_of_researcher, p.title 
+                                    from Researcher r 
+                                    inner join Works_in_Project wip on r.researcher_id = wip.researcher_id 
+                                    inner join Project p on wip.project_id = p.project_id
+                                    order by name_of_researcher)
+                                    union 
+                                    (select concat(r.last_name," ", r.first_name) as name_of_researcher, p.title 
+                                    from Researcher r 
+                                    inner join Project p on r.researcher_id = p.supervisor_id 
+                                    order by name_of_researcher)) A
+                                    where A.title = "{project}"''')
+            projects=mycursor.fetchall()
+            return render_template("Projectsfilters.html", projects=projects,project=project, stelehoi=stelehoi, boolean=True)
+    return render_template("Projectsfilters.html", stelehoi=stelehoi, boolean=True)
 
 
 
 @views.route('/Researcher/Edit_Researcher', methods=['GET', 'POST'])
 def Edit_Researcher():
 
-    mycursor3.execute(""" select concat(last_name, " ", first_name) as full_name from Researcher""")
+    mycursor3.execute(
+        """ select concat(last_name, " ", first_name) as full_name from Researcher""")
     researchers = mycursor3.fetchall()
     if request.method == 'POST':
         if 'researcher' in request.form:
             researcher = request.form["researcher"]
-            mycursor2.execute(f'''select researcher_id from Researcher where concat(last_name, " ", first_name) = "{researcher}"''')
+            mycursor2.execute(
+                f'''select researcher_id from Researcher where concat(last_name, " ", first_name) = "{researcher}"''')
             researcher_id = mycursor2.fetchall()
-            mycursor3.execute(f'select sex,last_name ,date_of_birth,first_name,researcher_id from Researcher where researcher_id ="{researcher_id[0][0]}"')
+            mycursor3.execute(
+                f'select sex,last_name ,date_of_birth,first_name,researcher_id from Researcher where researcher_id ="{researcher_id[0][0]}"')
             data = mycursor3.fetchall()
             return render_template("Edit_Researcher.html", data=data, researcher_id=researcher_id, researchers=researchers, boolean=True)
         if 'researcher_id' in request.form:
@@ -285,7 +330,8 @@ def Edit_Researcher():
             last_name = request.form['last_name']
             first_name = request.form['first_name']
             date_of_birth = request.form['date_of_birth']
-            mycursor2.execute(f'''update Researcher set first_name="{first_name}",last_name="{last_name}",date_of_birth="{date_of_birth}" where researcher_id="{researcher_idd}"''')
+            mycursor2.execute(
+                f'''update Researcher set first_name="{first_name}",last_name="{last_name}",date_of_birth="{date_of_birth}" where researcher_id="{researcher_idd}"''')
             ourdb.commit()
             return render_template("Edit_Researcher.html", researchers=researchers, boolean=True)
 
@@ -300,6 +346,7 @@ def Add_Researcher():
         last_name = request.form['last_name']
         first_name = request.form['first_name']
         organisation_id = request.form['organisation_id']
-        mycursor3.execute(f'''insert into Researcher (sex,last_name,date_of_birth,first_name,organisation_id) values ("{sex}","{last_name}","{date_of_birth}","{first_name}","{organisation_id}") ''')
+        mycursor3.execute(
+            f'''insert into Researcher (sex,last_name,date_of_birth,first_name,organisation_id) values ("{sex}","{last_name}","{date_of_birth}","{first_name}","{organisation_id}") ''')
         ourdb.commit()
     return render_template("Add_Researcher.html", boolean=True)
