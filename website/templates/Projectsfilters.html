@@ -1,0 +1,94 @@
+{% extends "base.html" %} {% block title %}Project{% endblock %} {% block content
+%}
+<br>
+<h1 style="color: rgb(0, 0, 0)">
+    Projects
+</h1>
+
+<br>
+
+<ul class="nav nav-tabs">
+    <a class="nav-link " id="Projects_per_researcher" href="/Project/Projects_per_researcher">Projects per
+        researcher</a>
+    <a class="nav-link" id="Projects_per_organisation" href="/Project/Projects_per_organisation">Projects per
+        organisation</a>
+    <a class="nav-link" id="Top_3__Research_Field_Duos" href="/Project/Top_3__Research_Field_Duos">Top 3 Research
+        Field Duos</a>
+    <a class="nav-link" id="Edit_Project" href="/Project/Edit_Project">Edit Projects</a>
+    <a class="nav-link " id="Add_Project" href="/Project/Add_Project">Add new Projects</a>
+    <a class="nav-link active" id="Projectsfilters" href="/Project/Projectsfilters">Projects by Filters</a>
+</ul>
+
+<body>
+
+    <form method="POST">
+        <label for="date">Choose a Date to show which porject were active </label>
+        <input type="date" name="date" id="date">
+        <br>
+        <label for="stelehos">Choose a Executive</label>
+        <select name="stelehos" id="stelehos">
+            <option value="-">-</option>
+            {%for stelehos in stelehoi%}
+
+            <option value="{{stelehos[0]}}">{{stelehos[0]}}</option>
+            {%endfor%}
+        </select>
+        <br>
+        <label for="duration">Choose duration of Project</label>
+        <select name="duration" id="duration">
+            <option value="-">-</option>
+            {%for i in range(12,49)%}
+            <option value="{{i}}">{{i}}</option>
+            {%endfor%}
+        </select>
+        <br>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+<body>
+    {%if data%}
+    <form method="POST">
+        <br><br>
+        <label for="project">Choose a project to see the researchers that are working on it </label>
+        <select name="project" id="project">
+            {%for project in data%}
+            <option value="{{project[0]}}">{{project[0]}}</option>
+            {%endfor%}
+        </select>
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+    {%endif%}
+</body>
+
+<body>
+<br><br>
+    <style>
+        table,
+        th,
+        td {
+            border: 2px solid rgb(0, 0, 0);
+        }
+    </style>
+    {%if projects%}
+    <p>The researchers that are working on the project {{project}} are :</p>
+    <br>
+    <table width="50%">
+
+        <tr>
+            <th>Researchers Names</th>
+        </tr>
+
+        {% for researcher in projects %}
+        <tr>
+            <td>{{ researcher[0] }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+    {%endif%}
+</body>
+
+{% endblock %}
