@@ -54,7 +54,6 @@
 8. Run the following script to enter the Project folder and start the web-server,
 
 ```bash
-	$ cd website
 	$ python main.py
 ```
 
