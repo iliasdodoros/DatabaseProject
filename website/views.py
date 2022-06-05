@@ -260,8 +260,7 @@ def Add_Project():
         supervisor_id = request.form['supervisor_id']
         grader_id = request.form['grader_id']
         organisation_id = request.form['organisation_id']
-        mycursor3.execute(
-            f'''insert into Project (amount,title,beginning,ending,duration,summary,grade,date_of_grading,stelehos_id,programm_id,supervisor_id,grader_id,organisation_id) values ("{amount}","{title}","{beginning}","{ending}","{duration}","{summary}","{grade}","{date_of_grading}","{stelehos_id}","{programm_id}","{supervisor_id}","{grader_id}","{organisation_id}") ''')
+        mycursor3.execute( f'''insert into Project (amount,title,beginning,ending,duration,summary,grade,date_of_grading,stelehos_id,programm_id,supervisor_id,grader_id,organisation_id) values ("{amount}","{title}","{beginning}","{ending}","{duration}","{summary}","{grade}","{date_of_grading}","{stelehos_id}","{programm_id}","{supervisor_id}","{grader_id}","{organisation_id}") ''')
         ourdb.commit()
     return render_template("Add_Project.html", boolean=True)
 
