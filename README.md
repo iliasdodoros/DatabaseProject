@@ -64,4 +64,4 @@
 ## SQL Queries
 
 Here we show all the [Queries](db/all_queries.sql) used in the site at each page.
-Find the questions for the queries attached to the file [Εκφωνήσεις](Documents/Εκφώνηση.pdf)
+
