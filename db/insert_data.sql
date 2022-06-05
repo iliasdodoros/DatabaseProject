@@ -32,6 +32,7 @@ VALUES
 	('Boston Dynamics','Research & Innovation Center','29'),
 	('IBM Research','Research & Innovation Center','30');
 
+
 INSERT INTO Stelehos 
 	(`name`,`stelehos_id`) 
 VALUES 
