@@ -17,31 +17,7 @@ begin
 end $$
 
 delimiter ;
--------------------------------------------------
 
-DELIMITER $$
-
-create trigger update_in_project
-before update on Project  
-for each row 
-begin 
-	if(new.supervisor_id not in (select researcher_id 
-	from Researcher 
-	where organisation_id = new.organisation_id) 
-	or 
-	new.grader_id  in (select researcher_id 
-	from Researcher 
-	where organisation_id = new.organisation_id)
-	or
-	new.supervisor_id not in (select researcher_id 
-	from Works_in_Project
-	where project_id = new.project_id ))
-	then 
-	signal sqlstate '45000' set MESSAGE_TEXT = 'Wrong data input. Supervisor must work in the organisation that handles the project and the grader must be from a different organisation.';  
-	end if;	
-end $$
-
-delimiter ;
 
 ------------------------------------------------------------------------
 
