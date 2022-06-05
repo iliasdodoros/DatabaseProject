@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+{% extends "base.html" %} {% block title %}Viewdelete{% endblock %} {% block content
+%}
+
+<br>
+<h1>
+    Research Fields
+</h1>
+<br>
+
+
+<body>
+
+
+    <form method="POST">
+        <label for="tabletoview">Choose an entity to view all the data stored :</label>
+        <select name="tabletoview" id="tabletoview">
+            <option value="Organisation">Organisations</option>
+            <option value="Programm">Programms</option>
+            <option value="Project">Projects</option>
+            <option value="Researcher">Researchers</option>
+            <option value="Stelehos">Executive</option>
+
+        </select>
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+    <br>
+    <br>
+    <table style="width: 100%">
+        <tr>
+            {%for name in colnames%}
+            <th>{{name[0]}}</th>
+            {%endfor%}
+        </tr>
+
+        {%if table%}
+        {% for i in range(rows) %}
+        <tr>
+            {% for j in range(col) %}
+            <td>{{ table[i][j] }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+        {%endif%}
+    </table>
+<br><br>
+{%if colnames%}
+
+    <form method="POST">
+        {%if colnames[0].Field == "name"%}
+        <label for="tabletodelete">Choose an name to delete </label>
+        <select name="tabletodelete" id="tabletodelete">
+            {%for i in range(rows)%}
+            <option value="{{table[i][0]}}">{{table[i][0]}}</option>
+            {%endfor%}
+        </select>
+        {%endif%}
+        {%if colnames[4]%}
+        {%if colnames[4].Field=="researcher_id"%}
+        <label for="tabletodelete">Choose a Researcher ID to delete the Researcher</label>
+        <select name="tabletodelete" id="tabletodelete">
+            {%for i in range(rows)%}
+            <option value="{{table[i][4]}}">{{table[i][4]}}</option>
+            {%endfor%}
+        </select>
+        {%endif%}
+        {%endif%}
+        {%if colnames[2]%}
+        {%if colnames[2].Field=="programm_id"%}
+        <label for="tabletodelete">Choose a Programm to delete </label>
+        <select name="tabletodelete" id="tabletodelete">
+           
+            {%for i in range(rows)%}
+            <option value="{{table[i][0]}}">{{table[i][0]}}</option>
+            {%endfor%}
+        </select>
+        {%endif%}
+        {%endif%}
+        {%if colnames[1].Field=="title"%}
+        <label for="tabletodelete">Choose an name to delete </label>
+        <select name="tabletodelete" id="tabletodelete">
+            {%for i in range(rows)%}
+            <option value="{{table[i][1]}}">{{table[i][1]}}</option>
+            {%endfor%}
+        </select>
+        {%endif%}
+        {%if colnames[0][1]=="name"%}
+        <label for="tabletodelete">Choose an name to delete </label>
+        <select name="tabletodelete" id="tabletodelete">
+           
+            {%for i in range(rows)%}
+            <option value="{{table[i][0]}}">{{table[i][0]}}</option>
+            {%endfor%}
+        </select>
+        {%endif%}
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <style>
+        table,
+        th,
+        td {
+            border: 2px solid rgb(0, 0, 0);
+        }
+    </style>
+
+
+</body>
+{%endif%}
+{%endblock%}
+
+</html>

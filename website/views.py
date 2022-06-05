@@ -350,3 +350,27 @@ def Add_Researcher():
             f'''insert into Researcher (sex,last_name,date_of_birth,first_name,organisation_id) values ("{sex}","{last_name}","{date_of_birth}","{first_name}","{organisation_id}") ''')
         ourdb.commit()
     return render_template("Add_Researcher.html", boolean=True)
+
+
+
+
+@views.route('/Viewdelete', methods=['GET', 'POST'])
+def Viewdelete():
+    mycursor2.execute('show tables')
+    tables= mycursor2.fetchall()
+
+    if request.method == 'POST':
+        if 'tabletoview' in request.form:
+            tabletoview=request.form['tabletoview']
+            mycursor.execute(f'select * from {tabletoview}')
+            table=mycursor.fetchall()
+            mycursor3.execute(f'show columns from {tabletoview}')
+            colnames= mycursor3.fetchall()
+            if 'tabletodelete' in request.form:
+                if tabletoview=='Organisation'|'Programm'|'Stelehos':
+                    tabletodelete=request.form['tabletodelete']
+                    mycursor2.execute(f'delete from "{tabletoview}" where name="{tabletodelete}"')
+                    ourdb.commit()
+            return render_template("Viewdelete.html",tables=tables,colnames=colnames, table=table,rows=len(table),col=len(table[0]), boolean=True)
+
+    return render_template("Viewdelete.html",tables=tables, boolean=True)
