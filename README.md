@@ -48,6 +48,8 @@
 	$ pip install Flask 
 	$ pip install requests
 	$ pip install python-dateutil
+	$ pip install dataclasses
+	$ pip install DateTime
 
 ```
 
