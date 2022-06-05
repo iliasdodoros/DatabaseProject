@@ -368,10 +368,18 @@ def Viewdelete():
             mycursor3.execute(f'show columns from {tabletoview}')
             colnames= mycursor3.fetchall()
             if 'tabletodelete' in request.form:
-                if tabletoview=='Organisation'|'Programm'|'Stelehos':
+                if tabletoview=='Organisation'|'Programm'|'Stelehos' :
                     tabletodelete=request.form['tabletodelete']
                     mycursor2.execute(f'delete from "{tabletoview}" where name="{tabletodelete}"')
                     ourdb.commit()
+                if tabletoview== 'Project' :
+                    tabletodelete=request.form['tabletodelete']
+                    mycursor2.execute(f'delete from "{tabletoview}" where title="{tabletodelete}"')
+                    ourdb.commit()
+                if tabletoview== 'Researcher' :
+                    tabletodelete=request.form['tabletodelete']
+                    mycursor2.execute(f'delete from "{tabletoview}" where last_name="{tabletodelete}"')
+                    ourdb.commit()    
             return render_template("Viewdelete.html",tables=tables,colnames=colnames, table=table,rows=len(table),col=len(table[0]), boolean=True)
 
     return render_template("Viewdelete.html",tables=tables, boolean=True)
