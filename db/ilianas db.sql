@@ -52,7 +52,7 @@ CREATE TABLE University
   Proupologismos_apo_Ypourgeio_Paideias INT NOT NULL,
   organisation_id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (organisation_id),
-  CONSTRAINT `fk_university_organisation` FOREIGN KEY (organisation_id) REFERENCES Organisation(organisation_id) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `fk_university_organisation` FOREIGN KEY (organisation_id) REFERENCES Organisation(organisation_id) ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 alter table University add constraint check(Proupologismos_apo_Ypourgeio_Paideias > 0); 

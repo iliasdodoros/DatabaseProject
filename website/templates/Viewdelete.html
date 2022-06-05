@@ -48,8 +48,8 @@
 {%if colnames%}
 
     <form method="POST">
-        {%if colnames[0].Field == "name"%}
-        <label for="tabletodelete">Choose an name to delete </label>
+        {%if colnames[1].Field == "postcode"%}
+        <label for="tabletodelete">Choose an Organisation to delete </label>
         <select name="tabletodelete" id="tabletodelete">
             {%for i in range(rows)%}
             <option value="{{table[i][0]}}">{{table[i][0]}}</option>
@@ -78,15 +78,15 @@
         {%endif%}
         {%endif%}
         {%if colnames[1].Field=="title"%}
-        <label for="tabletodelete">Choose an name to delete </label>
+        <label for="tabletodelete">Choose a Project to delete </label>
         <select name="tabletodelete" id="tabletodelete">
             {%for i in range(rows)%}
             <option value="{{table[i][1]}}">{{table[i][1]}}</option>
             {%endfor%}
         </select>
         {%endif%}
-        {%if colnames[0][1]=="name"%}
-        <label for="tabletodelete">Choose an name to delete </label>
+        {%if colnames[1].Field=="stelehos_id"%}
+        <label for="tabletodelete">Choose an Executive to delete </label>
         <select name="tabletodelete" id="tabletodelete">
            
             {%for i in range(rows)%}
