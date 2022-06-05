@@ -372,13 +372,13 @@ def Viewdelete():
                     tabletodelete=request.form['tabletodelete']
                     mycursor2.execute(f'delete from "{tabletoview}" where name="{tabletodelete}"')
                     ourdb.commit()
-                if tabletoview== 'Project' :
+                if tabletoview=='Project' :
                     tabletodelete=request.form['tabletodelete']
-                    mycursor2.execute(f'delete from "{tabletoview}" where title="{tabletodelete}"')
+                    mycursor2.execute(f'delete from Project where name="{tabletodelete}"')
                     ourdb.commit()
-                if tabletoview== 'Researcher' :
+                if tabletoview=='Researcher' :
                     tabletodelete=request.form['tabletodelete']
-                    mycursor2.execute(f'delete from "{tabletoview}" where last_name="{tabletodelete}"')
+                    mycursor2.execute(f'delete from Researcher where name="{tabletodelete}" ')
                     ourdb.commit()    
             return render_template("Viewdelete.html",tables=tables,colnames=colnames, table=table,rows=len(table),col=len(table[0]), boolean=True)
 
