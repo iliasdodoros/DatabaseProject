@@ -38,6 +38,7 @@
 
 ```bash
 	$ git clone https://github.com/iliasdodoros/DatabaseProject.git
+	$ cd DatabaseProject 
 ```
 
 7. Run the following to download all required libraries,
@@ -53,7 +54,6 @@
 8. Run the following script to enter the Project folder and start the web-server,
 
 ```bash
-	$ cd website
 	$ python main.py
 ```
 
