@@ -11,6 +11,7 @@ order by researcher_name ;
 
 select * from projects_per_researcher;
 
+
 create view projects_per_organisation as 
 select o.name as organisation_name, p.title as project_title 
 from Organisation o 

@@ -1,3 +1,4 @@
+
 select last_name, first_name, count(*) as projects_working_on from (
 (select r.last_name, r.first_name 
 from researcher r 

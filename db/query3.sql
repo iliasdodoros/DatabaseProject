@@ -1,3 +1,4 @@
+
 (select p.title, r.last_name, r.first_name  
 from Researcher r 
 inner join Works_in_Project wip on r.researcher_id = wip.researcher_id 
