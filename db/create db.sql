@@ -58,6 +58,7 @@ CREATE TABLE University
 alter table University add constraint check(Proupologismos_apo_Ypourgeio_Paideias > 0); 
 
 
+
 CREATE TABLE Research_Center
 (
   Proupologismos_apo_Idiotikes_draseis INT NOT NULL,
