@@ -43,7 +43,6 @@
 7. Run the following to download all required libraries,
 
 ```bash
-	
 	$ pip install mysql-connector-python
 	$ pip install Flask 
 	$ pip install requests
