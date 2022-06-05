@@ -130,7 +130,7 @@ alter table Project add constraint check(amount between 100000 and 1000000);
 
 alter table Project add constraint check(beginning < ending);
 
-alter table project add constraint check(date_of_grading < beginning);
+alter table Project add constraint check(date_of_grading < beginning);
 
 alter table Project add constraint check(grade between 0 and 10);
 
