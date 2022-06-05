@@ -16,12 +16,12 @@
 
 ## ER-Diagram
 
-![](https://github.com/nickbel7/hotel-management/blob/main/Diagrams(ERD%2CRelational)/ERD.jpg)
+![](https://github.com/iliasdodoros/DatabaseProject/blob/main/Diagrams/ER%20diagram.jpg)
 
 ## Relational Model
 
-![](https://github.com/nickbel7/hotel-management/blob/main/Diagrams(ERD%2CRelational)/RelationalDiagram.png?raw=true)
-![](https://github.com/nickbel7/hotel-management/blob/main/Diagrams(ERD%2CRelational)/RelationalDiagram.jpg)
+![](https://github.com/iliasdodoros/DatabaseProject/blob/main/Diagrams/relational.png)
+
 
 ## Installation
 1. At first, make sure you have installed MariaDB on your computer. [Download page](https://mariadb.org/download/?t=mariadb&p=mariadb&r=10.6.8&os=windows&cpu=x86_64&pkg=msi&m=nxtHost#entry-header)
