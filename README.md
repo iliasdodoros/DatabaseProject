@@ -63,7 +63,7 @@
 
 ## SQL Queries
 
-Here we show all the [Queries](SQL_Code/PROJECT_QUERIES.sql) used in the site at each page.
+Here we show all the [Queries](db/all_queries.sql) used in the site at each page.
 Find the questions for the queries attached to the file [Εκφωνήσεις](Docs/Εκφώνηση.pdf)
 
 ## YouTube
