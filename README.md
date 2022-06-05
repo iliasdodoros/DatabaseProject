@@ -22,7 +22,6 @@
 
 ![](https://github.com/iliasdodoros/DatabaseProject/blob/main/Diagrams/relational.png)
 
-
 ## Installation
 1. At first, make sure you have installed MariaDB on your computer. [Download page](https://mariadb.org/download/?t=mariadb&p=mariadb&r=10.6.8&os=windows&cpu=x86_64&pkg=msi&m=nxtHost#entry-header)
 2. Then, connect to the server throught a DBMS (DBeaver).
@@ -64,8 +63,4 @@
 ## SQL Queries
 
 Here we show all the [Queries](db/all_queries.sql) used in the site at each page.
-Find the questions for the queries attached to the file [Εκφωνήσεις](Docs/Εκφώνηση.pdf)
-
-## YouTube
-Explaining in Greek language how to use our wep application and what queries are used in each page.<br />
-<https://youtu.be/qY2IX3AB5gI>
+Find the questions for the queries attached to the file [Εκφωνήσεις](Documents/Εκφώνηση.pdf)
