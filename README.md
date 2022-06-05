@@ -1,12 +1,12 @@
 # ELIDEK
 
-## Contributors
+## Partners 
 
 1. Ntontoros Ilias
 3. Chatzilia Iliana
 4. Kitsis Theodoros Ioannis
 
-## [Requirements]
+## Requirements
 
 - MariaDB
 - Flask 
@@ -16,78 +16,52 @@
 
 ## ER-Diagram
 
-![](https://github.com/nickbel7/hotel-management/blob/main/Diagrams(ERD%2CRelational)/ERD.jpg)
+![](https://github.com/iliasdodoros/DatabaseProject/blob/main/Diagrams/ER%20diagram.jpg)
 
 ## Relational Model
 
-![](https://github.com/nickbel7/hotel-management/blob/main/Diagrams(ERD%2CRelational)/RelationalDiagram.png?raw=true)
-![](https://github.com/nickbel7/hotel-management/blob/main/Diagrams(ERD%2CRelational)/RelationalDiagram.jpg)
+![](https://github.com/iliasdodoros/DatabaseProject/blob/main/Diagrams/relational.png)
 
 ## Installation
-1. At first, make sure you have installed sql server 2019 (express) on your computer. [Download page](https://www.microsoft.com/en-us/download/details.aspx?id=101064)
-2. Then, connect to the server throught a DBMS (preferably Microsoft SQL Management Studio) with sa (system administrator) credentials.
+1. At first, make sure you have installed MariaDB on your computer. [Download page](https://mariadb.org/download/?t=mariadb&p=mariadb&r=10.6.8&os=windows&cpu=x86_64&pkg=msi&m=nxtHost#entry-header)
+2. Then, connect to the server throught a DBMS (DBeaver).
 
-### Run the following sql queries inside the DMBS (at this spesific order !).
+### Run the following sql queries inside the DMBS (at this order ).
 
-3. [CREATE_tables.sql](SQL_Code/CREATE_tables.sql) to create the database and the tables.
-4. [CREATE_indexes.sql](SQL_Code/CREATE_indexes.sql) to create the indexes.
-5. [CREATE_views_1.sql](SQL_Code/CREATE_views_1.sql) and [CREATE_views_2.sql](SQL_Code/CREATE_views_2.sql) to create the required views.
+3. [triggers.sql](db/triggers.sql) to create triggers .
+4. [create_db.sql](db/create_db.sql) to create the database,the tables and the indexes .
+5. [insert_data.sql](db/insert_data.sql) to insert data .
 
-### Insert Mock Data in the database
-
-6. Insert Data from the excel [HotelManagement-Data.xlsx](Mock_Data/HotelManagement_V2.xlsx) throught the Import / Export wizard of Microsoft Management Studio <br />
-##### (Attention !) - Insert the data table by table with strictly the following order and by enabling the identity insert in the "Edit mappings" option for each table.
-	Reservations
-	Reservations
-	HotelServices
-	HotelLocations
-	Doors
-	HotelRooms
-	ReservationCustomers
-	ReservationServices
-	ReservationRooms
-	DoorAccessLog
-OR <br />
-Directly insert the Backup (.bak file) of the database with all the data located here [HotelManagement.bak](DB-Backup/HotelManagement_V2.bak)
-```bash
-	Databases (Right-click) > Restore Database..
-```
 
 ### Download and run the web-app 
-7. Run,
+6. Run,
 
 ```bash
-	$ git clone https://github.com/nickbel7/hotel-management.git
-	$ cd hotel-management
+	$ git clone https://github.com/iliasdodoros/DatabaseProject.git
+	$ cd DatabaseProject 
 ```
 
-9. Add your database credentials (preferably use sa user to have all privileges) at the top of the [app.py](Project/app.py) file,
-```bash
-	ql_user = '**'
-	sql_password = '****'
-	sql_server_name = '*******'
-	sql_database_name = 'HotelManagement'
-```
-10. Run the following script to download all required libraries,
+7. Run the following to download all required libraries,
 
 ```bash
-	$ pip install -r requirements.txt
+	$ pip install mysql-connector-python
+	$ pip install Flask 
+	$ pip install requests
+	$ pip install python-dateutil
+	$ pip install dataclasses
+	$ pip install DateTime
+
 ```
 
-11. Run the following script to enter the Project folder and start the web-server,
+8. Run the following script to enter the Project folder and start the web-server,
 
 ```bash
-	$ cd Project
-	$ python -m flask run
+	$ python main.py
 ```
 
-12. Open your browser and type <http://127.0.0.1:5000/> to preview the website.
+9. Open your browser and type <http://127.0.0.1:5000/> to preview the website.
 
 ## SQL Queries
 
-Here we show all the [Queries](SQL_Code/PROJECT_QUERIES.sql) used in the site at each page.
-Find the questions for the queries attached to the file [Εκφωνήσεις](Docs/Εκφώνηση.pdf)
-
-## YouTube
-Explaining in Greek language how to use our wep application and what queries are used in each page.<br />
-<https://youtu.be/qY2IX3AB5gI>
+Here we show all the [Queries](db/all_queries.sql) used in the site at each page.
+Find the questions for the queries attached to the file [Εκφωνήσεις](Documents/Εκφώνηση.pdf)
