@@ -4,10 +4,12 @@ from Project p inner join Company c on p.organisation_id = c.organisation_id
 inner join Organisation o on o.organisation_id = c.organisation_id 
 group by p.stelehos_id, o.name;
 
-select s.name, pc.name, pc.total_amount  
+select name_of_executive, name_of_company, total_amount from (
+select s.name as name_of_executive, pc.name as name_of_company, pc.total_amount, row_number() over (partition by s.name order by pc.total_amount desc) as seqnum  
 from projects_of_companies pc 
-inner join Stelehos s on pc.stelehos_id = s.stelehos_id 
-order by pc.total_amount desc 
+inner join stelehos s on pc.stelehos_id = s.stelehos_id 
+order by pc.total_amount desc ) A
+where seqnum = 1
 limit 5;
 
 drop view projects_of_companies;
