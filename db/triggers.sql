@@ -9,11 +9,7 @@ begin
 	where organisation_id = new.organisation_id) 
 	or 
 	new.grader_id  in (select researcher_id 
-<<<<<<< Updated upstream
 	from Researcher 
-=======
-	from researcher 
->>>>>>> Stashed changes
 	where organisation_id = new.organisation_id))
 	then 
 	signal sqlstate '45000' set MESSAGE_TEXT = 'Wrong data input. Supervisor must work in the organisation that handles the project and the grader must be from a different organisation.';  
