@@ -118,6 +118,7 @@ order by projects_working_on desc ;
 
 drop view active_projects;
 
+
 -- 3.7
 create view projects_of_companies as
 select sum(p.amount) as total_amount, p.title, p.project_id, p.stelehos_id, p.programm_id, p.organisation_id, o.name 

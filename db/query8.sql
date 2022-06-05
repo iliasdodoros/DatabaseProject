@@ -1,3 +1,4 @@
+
 select * from (
 select concat(last_name, " ", first_name) as name_of_researcher, count(*) as projects_working_on  from (
 (select r.last_name, r.first_name

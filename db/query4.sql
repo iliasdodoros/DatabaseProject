@@ -1,4 +1,3 @@
-
 create view orgs_projects_per_year as
 select name, extract( year from beginning) as yearr, count(*) as got_projects from (
 select o.name, p.project_id , p.beginning
