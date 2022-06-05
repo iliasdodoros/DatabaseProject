@@ -29,39 +29,37 @@
 
 ### Run the following sql queries inside the DMBS (at this spesific order !).
 
-3. [create_db.sql](db/create_db.sql) to create the database,the tables and the indexes .
-4. [insert_data.sql](db/insert_data.sql) to insert data .
-5. [triggers.sql](db/triggers.sql) to create triggers .
+3. [triggers.sql](db/triggers.sql) to create triggers .
+4. [create_db.sql](db/create_db.sql) to create the database,the tables and the indexes .
+5. [insert_data.sql](db/insert_data.sql) to insert data .
+
 
 ### Download and run the web-app 
 7. Run,
 
 ```bash
-	$ git clone https://github.com/nickbel7/hotel-management.git
-	$ cd hotel-management
+	$ git clone https://github.com/iliasdodoros/DatabaseProject.git
 ```
 
-9. Add your database credentials (preferably use sa user to have all privileges) at the top of the [app.py](Project/app.py) file,
-```bash
-	ql_user = '**'
-	sql_password = '****'
-	sql_server_name = '*******'
-	sql_database_name = 'HotelManagement'
-```
-10. Run the following script to download all required libraries,
+8. Run the following to download all required libraries,
 
 ```bash
-	$ pip install -r requirements.txt
+	
+	$ pip install mysql-connector-python
+	$ pip install Flask 
+	$ pip install requests
+	$ pip install python-dateutil
+
 ```
 
-11. Run the following script to enter the Project folder and start the web-server,
+9. Run the following script to enter the Project folder and start the web-server,
 
 ```bash
-	$ cd Project
-	$ python -m flask run
+	$ cd website
+	$ python main.py
 ```
 
-12. Open your browser and type <http://127.0.0.1:5000/> to preview the website.
+10. Open your browser and type <http://127.0.0.1:5000/> to preview the website.
 
 ## SQL Queries
 
