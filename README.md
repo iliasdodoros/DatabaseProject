@@ -38,6 +38,7 @@
 
 ```bash
 	$ git clone https://github.com/iliasdodoros/DatabaseProject.git
+	$ cd DatabaseProject 
 ```
 
 7. Run the following to download all required libraries,
