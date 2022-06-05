@@ -24,34 +24,14 @@
 ![](https://github.com/nickbel7/hotel-management/blob/main/Diagrams(ERD%2CRelational)/RelationalDiagram.jpg)
 
 ## Installation
-1. At first, make sure you have installed sql server 2019 (express) on your computer. [Download page](https://www.microsoft.com/en-us/download/details.aspx?id=101064)
-2. Then, connect to the server throught a DBMS (preferably Microsoft SQL Management Studio) with sa (system administrator) credentials.
+1. At first, make sure you have installed MariaDB on your computer. [Download page](https://mariadb.org/download/?t=mariadb&p=mariadb&r=10.6.8&os=windows&cpu=x86_64&pkg=msi&m=nxtHost#entry-header)
+2. Then, connect to the server throught a DBMS (DBeaver).
 
 ### Run the following sql queries inside the DMBS (at this spesific order !).
 
-3. [CREATE_tables.sql](SQL_Code/CREATE_tables.sql) to create the database and the tables.
-4. [CREATE_indexes.sql](SQL_Code/CREATE_indexes.sql) to create the indexes.
-5. [CREATE_views_1.sql](SQL_Code/CREATE_views_1.sql) and [CREATE_views_2.sql](SQL_Code/CREATE_views_2.sql) to create the required views.
-
-### Insert Mock Data in the database
-
-6. Insert Data from the excel [HotelManagement-Data.xlsx](Mock_Data/HotelManagement_V2.xlsx) throught the Import / Export wizard of Microsoft Management Studio <br />
-##### (Attention !) - Insert the data table by table with strictly the following order and by enabling the identity insert in the "Edit mappings" option for each table.
-	Reservations
-	Reservations
-	HotelServices
-	HotelLocations
-	Doors
-	HotelRooms
-	ReservationCustomers
-	ReservationServices
-	ReservationRooms
-	DoorAccessLog
-OR <br />
-Directly insert the Backup (.bak file) of the database with all the data located here [HotelManagement.bak](DB-Backup/HotelManagement_V2.bak)
-```bash
-	Databases (Right-click) > Restore Database..
-```
+3. [create_db.sql](db/create_db.sql) to create the database,the tables and the indexes .
+4. [insert_data.sql](db/insert_data.sql) to insert data .
+5. [triggers.sql](db/triggers.sql) to create triggers .
 
 ### Download and run the web-app 
 7. Run,
