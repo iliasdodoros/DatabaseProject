@@ -107,7 +107,7 @@ def Stelehos():
     mycursor.execute('''select name_of_executive, name_of_company, total_amount from (
                         select s.name as name_of_executive, pc.name as name_of_company, pc.total_amount, row_number() over (partition by s.name order by pc.total_amount desc) as seqnum  
                         from projects_of_companies pc 
-                        inner join stelehos s on pc.stelehos_id = s.stelehos_id 
+                        inner join Stelehos s on pc.stelehos_id = s.stelehos_id 
                         order by pc.total_amount desc ) A
                         where seqnum = 1
                         limit 5;''')
